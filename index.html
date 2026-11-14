@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MiCita Salón · Agenda para tu salón</title>
+<meta name="theme-color" content="#2b1e2f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="MiCita Salón">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<style>
+@font-face{font-family:'Fraunces';font-weight:600;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2')}
+:root{--bg:#faf5f2;--card:#fff;--card2:#f6eee9;--ink:#2b1e2f;--mut:#7d6f7c;--line:#ece1db;--ac:#b8517a;--ac2:#f6dde6;--gold:#c08f3e;--ok:#2f8f6b;--okb:#dff1e9;--bad:#c4473d;--badb:#f8e0dd;--conf:#3c6fb0;--confb:#e2ebf7;--pend:#a1782a;--pendb:#f6ecd7}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);font-size:16px;line-height:1.45;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+button,input,select,textarea{font:inherit;color:inherit}
+#app{max-width:560px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px 20px}
+h1,h2,.serif{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em}
+h1{font-size:28px;line-height:1.15}
+h2{font-size:20px;margin-bottom:10px}
+.mut{color:var(--mut)}.sm{font-size:14px}.xs{font-size:12.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:10px}.between{justify-content:space-between}.wrap{flex-wrap:wrap}.grow{flex:1;min-width:0}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:600;cursor:pointer;background:var(--card2);display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.btn.pri{background:var(--ac);color:#fff}.btn.dark{background:var(--ink);color:#fff}.btn.ok{background:var(--ok);color:#fff}.btn.wa{background:#1f9d55;color:#fff}
+.btn.ghost{background:transparent;border:1.5px solid var(--line)}.btn.full{width:100%}.btn.s{padding:6px 10px;font-size:13px;border-radius:10px}
+.dots{border:0;background:none;color:var(--mut);font-size:18px;line-height:1;padding:2px 4px;cursor:pointer;letter-spacing:1px}
+.btn.bad{background:var(--badb);color:var(--bad)}
+label.f{display:block;font-size:13px;font-weight:600;color:var(--mut);margin:12px 0 5px}
+input,select,textarea{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--ac)}
+textarea{min-height:70px;resize:vertical}
+.hero{background:var(--ink);color:#fff;border-radius:22px;padding:18px;margin-bottom:12px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(184,81,122,.55),transparent 70%)}
+.hero .mut{color:#cdbfcc}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;position:relative;z-index:1}
+.kpi{background:rgba(255,255,255,.08);border-radius:14px;padding:10px}
+.kpi b{display:block;font-size:19px}
+.kpi span{font-size:11.5px;color:#cdbfcc}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px}
+.st-pend{background:var(--pendb);color:var(--pend)}.st-conf{background:var(--confb);color:var(--conf)}.st-done{background:var(--okb);color:var(--ok)}.st-noshow{background:var(--badb);color:var(--bad)}.st-cancel{background:#eee;color:#888}
+.ap{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.ap:first-child{border-top:0;padding-top:2px}
+.ap .t{width:52px;flex:none;text-align:right}
+.ap .t b{display:block;font-size:16px}
+.ap .bar{width:4px;border-radius:4px;background:var(--c,#b8517a);flex:none}
+.ap.cancel{opacity:.5}
+.free{display:flex;align-items:center;justify-content:space-between;border:1.5px dashed var(--line);border-radius:12px;padding:8px 12px;margin:8px 0;color:var(--mut);font-size:14px}
+.acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}.acts:empty{display:none}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:12px}
+.wd{border:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 0;text-align:center;cursor:pointer}
+.wd small{display:block;font-size:11px;color:var(--mut);text-transform:uppercase}
+.wd b{font-size:17px}
+.wd i{display:block;height:6px;font-style:normal}
+.wd i:after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--ac)}
+.wd i.no:after{display:none}
+.wd.on{background:var(--ink);color:#fff;border-color:var(--ink)}.wd.on small{color:#cdbfcc}
+.wd.today b{color:var(--ac)}.wd.on.today b{color:#fff}
+.cl{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line);cursor:pointer}
+.cl:first-child{border-top:0}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;flex:none;font-size:15px}
+.bars{display:flex;align-items:flex-end;gap:6px;height:110px;margin-top:8px}
+.bars div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.bars span{width:100%;background:var(--ac);border-radius:6px 6px 2px 2px;min-height:2px}
+.bars small{font-size:11px;color:var(--mut)}
+.seg{display:flex;background:var(--card2);border-radius:12px;padding:3px;margin-bottom:12px}
+.seg button{flex:1;border:0;background:transparent;padding:8px;border-radius:10px;font-weight:600;cursor:pointer;color:var(--mut)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;cursor:pointer;font-size:14px}
+.pill.on{border-color:var(--ac);background:var(--ac2);color:var(--ac);font-weight:600}
+.li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+.li:first-child{border-top:0}
+nav{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:20}
+nav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--mut);padding:4px 8px;cursor:pointer;min-width:58px}
+nav button svg{width:23px;height:23px}
+nav button.on{color:var(--ac);font-weight:600}
+.hide{display:none!important}
+#fab{position:fixed;right:18px;bottom:calc(80px + env(safe-area-inset-bottom));width:58px;height:58px;border-radius:50%;border:0;background:var(--ac);color:#fff;font-size:32px;box-shadow:0 8px 22px rgba(184,81,122,.45);z-index:21;cursor:pointer;line-height:1}
+#ov{position:fixed;inset:0;background:rgba(43,30,47,.45);z-index:40;display:flex;align-items:flex-end;justify-content:center}
+#sheet{background:var(--bg);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:24px 24px 0 0;padding:18px 16px calc(22px + env(safe-area-inset-bottom));animation:up .22s ease}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.grip{width:40px;height:5px;border-radius:5px;background:var(--line);margin:0 auto 12px}
+.empty{text-align:center;padding:24px 10px;color:var(--mut)}
+.banner{background:var(--pendb);border-radius:14px;padding:10px 14px;margin-bottom:12px;font-size:14px}
+.err{color:var(--bad);font-size:14px;margin-top:8px}
+.big{font-size:26px;font-weight:700}
+.logo{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:18px;background:var(--ink);color:#fff;margin-bottom:10px}
+a{color:var(--ac)}
+.toast{position:fixed;left:50%;bottom:calc(150px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;z-index:60}
+.pin{display:flex;gap:12px;justify-content:center;margin:18px 0}
+.pin i{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink)}
+.pin i.f{background:var(--ink)}
+.kp{display:grid;grid-template-columns:repeat(3,72px);gap:12px;justify-content:center}
+.kp button{height:64px;border-radius:50%;border:0;background:var(--card);font-size:24px;font-weight:600;cursor:pointer;border:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;border-radius:14px;padding:10px 14px;margin-top:12px}.tot b{display:block;font-size:20px}.tot .xs.mut,.tot .mut{color:#cdbfcc}.prow,.prow2{display:grid;grid-template-columns:1fr 92px 82px;gap:8px;align-items:center;padding:6px 0}.prow2{grid-template-columns:1fr 110px}.prow input,.prow2 input{padding:8px 10px}.nw{white-space:nowrap}.phs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.phs img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;cursor:pointer;border:1px solid var(--line)}.phs span{grid-column:1/-1}
+.sb-top{display:none}
+@media(min-width:600px){
+body{padding-bottom:24px;padding-left:88px}
+nav{top:0;bottom:0;left:0;right:auto;width:88px;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:4px;padding:18px 8px;border-top:0;border-right:1px solid var(--line);overflow-y:auto;background:#fff}
+nav button{min-width:0;padding:10px 4px;border-radius:12px}
+nav button.on{background:var(--ac2)}
+#fab{bottom:28px;right:28px}
+#app{max-width:780px;padding:24px 24px 30px}
+.toast{bottom:40px}
+}
+@media(min-width:900px){
+body{padding-left:250px}
+nav{width:250px;padding:20px 14px;gap:2px}
+nav button{flex-direction:row;justify-content:flex-start;gap:12px;font-size:15px;padding:11px 14px}
+nav button svg{width:21px;height:21px}
+.sb-top{display:block;margin-bottom:14px}
+.sb-brand{display:flex;gap:10px;align-items:center;margin:0 4px 16px}.sb-brand img{width:42px;height:42px;border-radius:12px}.sb-brand b{display:block;font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1.1}.sb-brand span{font-size:12.5px;color:var(--mut)}
+#fab{display:none}
+#app{max-width:1200px;padding:30px 36px 40px}
+#ov{align-items:stretch;justify-content:flex-end}
+#sheet{max-width:500px;max-height:none;height:100vh;border-radius:24px 0 0 24px;animation:side .22s ease;padding:26px 24px}
+@keyframes side{from{transform:translateX(40px);opacity:0}}
+.grip{display:none}
+.kpi b{font-size:22px}
+}
+@media(min-width:1000px){
+.dash{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:start}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}.grid2>.card{margin:0}
+}
+.ag{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}
+.ag-h,.ag-b{display:grid;gap:8px}
+.ag-h{position:sticky;top:0;background:#fff;z-index:2;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.ag-h div{font-weight:700;font-size:14px}.ag-h small{display:block;font-weight:500;color:var(--mut);font-size:12px}
+.ag-b{position:relative;margin-top:8px}
+.ag-t{position:relative}.ag-t span{position:absolute;right:4px;font-size:11.5px;color:var(--mut);transform:translateY(-50%)}
+.ag-c{position:relative;border-radius:12px;background-image:repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px var(--hh));background-color:#fdfaf8;cursor:copy}
+.ag-c:hover{background-color:#fcf6f8}
+.ag-a{position:absolute;left:4px;right:4px;border-radius:10px;padding:5px 8px;font-size:12.5px;line-height:1.25;overflow:hidden;cursor:pointer;background:color-mix(in srgb,var(--pc) 16%,#fff);border-left:4px solid var(--pc);box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.ag-a b{display:block;font-size:13px}.ag-a span{color:var(--mut)}
+.ag-a.done{opacity:.7}.ag-a.noshow{opacity:.45;text-decoration:line-through}
+.ag-now{position:absolute;left:56px;right:0;height:2px;background:var(--bad);z-index:3}
+.backbtn{display:inline-flex;align-items:center;gap:4px;border:0;background:none;color:var(--ac);font-weight:600;font-size:15px;padding:4px 6px 4px 0;margin:0 0 6px;cursor:pointer}
+#sheet{position:relative}
+.sheetx{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--card2);color:var(--mut);font-size:15px;cursor:pointer;z-index:2}
+#sheet>.sheetx+h2,#sheet>.sheetx+.row,#sheet>.sheetx+div{padding-right:44px}
+.pchip{display:inline-block;font-size:11.5px;font-weight:700;color:#fff;background:var(--pc);border-radius:99px;padding:1px 8px;margin-right:2px;vertical-align:1px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}.occ{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:14px}.ob{flex:1;height:9px;background:var(--card2);border-radius:9px;overflow:hidden}.ob i{display:block;height:100%;border-radius:9px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<button id="fab" class="hide" onclick="newAppt()" aria-label="Nueva cita">+</button>
+<nav id="nav" class="hide"></nav>
+<script>
+const APPNAME='MiCita Salón',APP_URL='https://luisvanegas15-wq.github.io/Mi-Cita-Salon/',SOPORTE='',SECRET='ms26-LV-ab50e598',TRIAL=7;
+function h53(str,seed=0){let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
+h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
+const normN=n=>(n||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z]/g,'');
+function codeFor(name){const v=h53(normN(name)+'|'+SECRET).toString(36).toUpperCase().padStart(11,'0').slice(-8);return 'MS-'+v.slice(0,4)+'-'+v.slice(4)}
+const normC=c=>{const x=(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'').replace(/^MS/,'');return x.length===8?'MS-'+x.slice(0,4)+'-'+x.slice(4):''};
+
+const store={get(k,d){try{const v=localStorage.getItem('ms_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('ms_'+k,JSON.stringify(v))}catch(e){}}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const today=()=>{const d=new Date();d.setHours(0,0,0,0);return d};
+const parse=s=>new Date(s+'T00:00:00');
+const addD=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return iso(d)};
+const toMin=t=>{const[a,b]=(t||'0:0').split(':').map(Number);return a*60+b};
+const fromMin=m=>pad(Math.floor(m/60))+':'+pad(m%60);
+const h12=t=>{let[a,b]=t.split(':').map(Number);const p=a>=12?'p. m.':'a. m.';a=a%12||12;return a+':'+pad(b)+' '+p};
+const money=n=>'$'+Math.round(n||0).toLocaleString('es-CO');
+const dLong=s=>parse(s).toLocaleDateString('es-CO',{weekday:'long',day:'numeric',month:'long'});
+const dShort=s=>parse(s).toLocaleDateString('es-CO',{day:'numeric',month:'short'});
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const daysBetween=(a,b)=>Math.round((parse(b)-parse(a))/864e5);
+const agoTxt=d=>{const n=daysBetween(d,iso(today()));return n<=0?'vino hoy':n===1?'vino ayer':'última hace '+n+' días'};
+const COLORS=['#b8517a','#c08f3e','#3c6fb0','#2f8f6b','#8a5cb8','#d0703a','#4a8c99','#a8466a'];
+const avColor=n=>COLORS[h53(n||'x')%COLORS.length];
+const initials=n=>(n||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+const ST={pend:'Pendiente',conf:'Confirmada',done:'Atendida',noshow:'No vino',cancel:'Cancelada'};
+const METHODS=['Efectivo','Nequi','Daviplata','Transferencia','Tarjeta'];
+const TYPES={unas:['💅','Uñas',[['Manicure tradicional',20000,45,15],['Pedicure',25000,60,30],['Semipermanente manos',45000,75,21],['Uñas acrílicas',90000,120,21],['Retoque acrílico',60000,90,21],['Polygel',80000,105,21]]],
+barberia:['💈','Barbería',[['Corte clásico',20000,30,21],['Corte degradado',25000,40,21],['Corte y barba',32000,50,21],['Barba',12000,20,14],['Corte niño',15000,30,30],['Cejas',5000,10,21]]],
+cejas:['👁️','Cejas y pestañas',[['Diseño de cejas',20000,30,21],['Cejas con henna',35000,45,21],['Laminado de cejas',60000,60,45],['Lifting de pestañas',70000,60,45],['Extensiones de pestañas',120000,120,21]]],
+pelu:['✂️','Peluquería',[['Corte dama',30000,45,45],['Cepillado',30000,45,0],['Tinte',90000,120,45],['Mechas o balayage',250000,180,90],['Keratina',180000,150,120]]],
+estetica:['🌿','Estética y spa',[['Limpieza facial',70000,60,30],['Depilación con cera',25000,30,30],['Masaje relajante',80000,60,0],['Hidratación facial',60000,45,30]]],
+otro:['✨','Otro',[['Servicio',30000,60,0]]]};
+const ADDS={unas:[['Decoración (por uña)',2000,5],['Francés',5000,10],['Retiro de acrílico',15000,20],['Uña rota o reparación',3000,5]],
+barberia:[['Diseño o línea',5000,10],['Lavado',3000,5],['Mascarilla negra',8000,10],['Tinte de barba',10000,15],['Cejas',5000,10]],
+cejas:[['Tinte',10000,10],['Depilación de bozo',8000,10],['Pestañas postizas',15000,15]],
+pelu:[['Cabello largo',20000,15],['Lavado',5000,10],['Tratamiento o hidratación',25000,20],['Peinado',30000,30]],
+estetica:[['Mascarilla',15000,10],['Alta frecuencia',10000,10],['Exfoliación',12000,10]],otro:[]};
+const mkSvc=(type,pre)=>TYPES[type][2].map(([nm,p,d,e],i)=>({id:(pre||uid())+i,name:nm,price:p,dur:d,every:e||0,dep:0,color:COLORS[i%COLORS.length]}));
+const mkAdd=(type,pre)=>(ADDS[type]||[]).map(([nm,p,m],i)=>({id:(pre||'x'+uid())+i,name:nm,price:p,min:m}));
+const addOf=id=>(B.addons||[]).find(x=>x.id===id);
+const addTxt=a=>a.add&&a.add.length?' + '+a.add.map(x=>x[0]).join(' + '):'';
+const TPL={conf:'Hola {cliente} ✨ Quedó agendada tu cita de {servicio} para {dia} a las {hora} en {negocio}. ¡Te espero!',
+rec:'Hola {cliente} 👋 Te recuerdo tu cita de {servicio} en {negocio} {dia} a las {hora}. ¿Me confirmas? Si no puedes venir, avísame para darle el espacio a otra persona. ¡Gracias!',
+gracias:'Gracias por venir, {cliente} 💖 Fue un gusto atenderte en {negocio}. Si te gustó, me ayudas mucho recomendándome. ¡Te espero pronto!',
+toca:'Hola {cliente} ✨ Ya te va tocando tu {servicio}. ¿Te separo un espacio esta semana en {negocio}?',
+vuelve:'Hola {cliente} 😊 Hace rato no te vemos en {negocio}. Esta semana tengo espacios disponibles, ¿te agendo?',
+espera:'Hola {cliente} 😊 Se liberó un espacio en {negocio} {dia} a las {hora}. ¿Lo quieres? Respóndeme rápido para separártelo.',
+cumple:'¡Feliz cumpleaños, {cliente}! 🎂 De parte de {negocio} te deseamos un día increíble. Tienes un detalle especial en tu próxima cita.'};
+const TPLN={conf:'Al agendar',rec:'Recordatorio',gracias:'Gracias después de la cita',toca:'Ya le toca volver',vuelve:'Invitar a volver',espera:'Lista de espera',cumple:'Cumpleaños'};
+let B=store.get('biz',null),SV=store.get('svc',[]),CL=store.get('cli',[]),AP=store.get('apt',[]),EX=store.get('exp',[]),WL=store.get('wl',[]),PR=store.get('pro',[]),lic=store.get('lic',null);
+let selPro='';
+let tab='hoy',selDay=iso(today()),weekStart=null,cajaP='mes',q='',unlocked=false,pinBuf='',showAct=false,ob={step:0,type:'unas',name:'',owner:''},overlapOK=false;
+function save(){store.set('biz',B);store.set('svc',SV);store.set('cli',CL);store.set('apt',AP);store.set('exp',EX);store.set('wl',WL);store.set('pro',PR)}
+const pro=id=>PR.find(p=>p.id===id)||{id:'',name:'Sin asignar',color:'#999',comm:0};
+const actPR=()=>PR.filter(p=>p.on!==false);
+const proChip=id=>{const p=pro(id);return id?`<span class="pchip" style="--pc:${p.color}">${esc(p.name.split(' ')[0])}</span>`:''};
+const depOf=a=>a.dep&&a.dep.amount||0;
+const apInc=a=>a.status==='done'?(a.paid?a.paid.amount:a.price-depOf(a))+depOf(a):a.status==='noshow'?depOf(a):0;
+const apTip=a=>a.status==='done'&&a.paid&&a.paid.tip||0;
+const noShows=cid=>AP.filter(a=>a.cid===cid&&a.status==='noshow').length;
+const svc=id=>SV.find(s=>s.id===id)||{name:'Servicio',price:0,dur:60,color:'#b8517a'};
+const cli=id=>CL.find(c=>c.id===id)||{name:'Cliente',phone:''};
+const active=a=>a.status!=='cancel';
+const trialLeft=()=>lic&&lic.trial?Math.max(0,TRIAL-daysBetween(lic.date,iso(today()))):99;
+
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),2200)}
+function modal(h){closeM();const o=document.createElement('div');o.id='ov';o.innerHTML=`<div id="sheet"><div class="grip"></div><button class="sheetx" onclick="closeM()" aria-label="Cerrar">✕</button>${h}</div>`;o.addEventListener('click',e=>{if(e.target===o)closeM()});document.body.appendChild(o)}
+function closeM(){const o=$('#ov');if(o)o.remove()}
+
+/* ---------- WhatsApp ---------- */
+function phoneWA(p){let d=(p||'').replace(/\D/g,'');if(d.length===10&&d[0]==='3')d='57'+d;return d}
+function fill(t,a,c,slot){const s=a?svc(a.sid):null;const dd=slot?slot.date:a&&a.date,hh=slot?slot.time:a&&a.time;
+ let out=(B.tpl[t]||TPL[t]).replace(/\{cliente\}/g,(c.name||'').split(' ')[0]).replace(/\{servicio\}/g,s?(s.name+(t==='conf'||t==='rec'?addTxt(a):'')).toLowerCase()+(a&&a.pid&&(t==='conf'||t==='rec')?' con '+pro(a.pid).name.split(' ')[0]:''):'').replace(/\{dia\}/g,dd?(dd===iso(today())?'hoy':dd===addD(iso(today()),1)?'mañana':'el '+dLong(dd)):'').replace(/\{hora\}/g,hh?h12(hh):'').replace(/\{negocio\}/g,B.name).replace(/\{total\}/g,a?money(a.price):'').replace(/\{profesional\}/g,a&&a.pid?pro(a.pid).name.split(' ')[0]:'');
+ if(a&&(t==='conf'||t==='rec')&&!/\{total\}/.test(B.tpl[t]||TPL[t])){out+=`\n\n💵 Total: ${money(a.price)}`+(a.dep?` · ya abonaste ${money(a.dep.amount)}, te falta ${money(a.price-a.dep.amount)}`:svc(a.sid).dep?` · para separar abona ${money(svc(a.sid).dep)}`:'')}
+ return out}
+function wa(t,aid,cid){const a=aid?AP.find(x=>x.id===aid):null;const c=cli(cid||(a&&a.cid));const p=phoneWA(c.phone);if(!p){toast('Este cliente no tiene celular guardado');return}
+if(a&&t==='rec'){a.rem=1;save()}window.open('https://wa.me/'+p+'?text='+encodeURIComponent(fill(t,a,c)),'_blank');setTimeout(render,300)}
+
+/* ---------- Render ---------- */
+const NAV={hoy:['Hoy','<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'],agenda:['Agenda','<rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/>'],clientes:['Clientes','<circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-1.5-5-4-5.6"/>'],caja:['Caja','<rect x="2" y="6" width="20" height="14" rx="3"/><path d="M2 10h20M16 15h2"/>'],mas:['Más','<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>']};
+function render(){
+ const nav=$('#nav'),fab=$('#fab');const hideAll=()=>{nav.classList.add('hide');fab.classList.add('hide')};
+ const bk=getBooking();if(bk){hideAll();$('#app').innerHTML=vBook(bk);return}
+ const pv=getProView();if(pv){hideAll();$('#app').innerHTML=vProPanel(pv,false);return}
+ if(!B){hideAll();$('#app').innerHTML=vWelcome();return}
+ if(asPro&&PR.some(p=>p.id===asPro)){hideAll();$('#app').innerHTML=vProPanel(proData(asPro),true);return}
+ if(B.pin&&!unlocked){hideAll();$('#app').innerHTML=vLock();return}
+ if(showAct||trialLeft()<=0){hideAll();$('#app').innerHTML=vActivar();return}
+ nav.classList.remove('hide');fab.classList.toggle('hide',tab==='mas');
+ nav.innerHTML=navHTML();
+ const tb=lic&&lic.trial?`<div class="banner row between"><span>🎁 Prueba gratis: <b>${trialLeft()} día${trialLeft()===1?'':'s'}</b></span><button class="btn s dark" onclick="showAct=true;render()">Activar</button></div>`:'';
+ const demo=B.demo?`<div class="banner" style="background:var(--confb)"><b>Estás viendo datos de ejemplo.</b> Explora con calma. <a href="#" onclick="clearDemo();return false">Empezar con mis datos</a></div>`:'';
+ $('#app').innerHTML=tb+demo+backBar()+({hoy:vHoy,agenda:vAgenda,clientes:vClientes,caja:vCaja,mas:vMas}[tab])();
+}
+let navStack=[];
+try{if(!location.hash.startsWith('#r=')&&!location.hash.startsWith('#p=')){history.replaceState({root:1},'');history.pushState({app:1},'')}}catch(e){}
+function go(t){if(t!==tab){navStack.push(tab);if(navStack.length>30)navStack.shift()}tab=t;window.scrollTo(0,0);render()}
+function goBack(){tab=navStack.length?navStack.pop():'hoy';window.scrollTo(0,0);render()}
+function backBar(){return tab==='hoy'?'':`<button class="backbtn" onclick="goBack()" aria-label="Volver"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Volver</button>`}
+addEventListener('popstate',()=>{const rep=()=>{try{history.pushState({app:1},'')}catch(e){}};if($('#ov')){closeM();rep();return}if(B&&tab!=='hoy'){goBack();rep()}});
+function apRow(a,opts={}){const s=svc(a.sid),c=cli(a.cid),end=fromMin(toMin(a.time)+(a.dur||s.dur)),ns=noShows(a.cid);
+ let acts='';
+ if(a.status==='pend'||a.status==='conf'){acts=`<button class="btn s wa" onclick="wa('rec','${a.id}')">${a.rem?'✓ Recordada':'Recordar'}</button>${a.status==='pend'?`<button class="btn s" onclick="setSt('${a.id}','conf')">Confirmó</button>`:''}<button class="btn s ok" onclick="doneAppt('${a.id}')">Atendida</button>`}
+ else if(a.status==='done'){acts=`<span class="sm mut">${money(apInc(a))}${apTip(a)?' + '+money(apTip(a))+' propina':''} · ${a.paid?a.paid.method:''}</span><button class="btn s ghost" onclick="wa('gracias','${a.id}')">Agradecer</button>`}
+ return `<div class="ap ${a.status}"><div class="t"><b>${a.time}</b><span class="xs mut">${end}</span></div><div class="bar" style="--c:${a.pid?pro(a.pid).color:s.color}"></div><div class="grow">
+ <div class="row between"><b onclick="openCli('${c.id}')" style="cursor:pointer">${esc(c.name)}${ns&&a.status!=='done'?` <span title="No ha venido ${ns} vez" style="font-size:13px">⚠️</span>`:''}</b><span class="row" style="gap:2px"><span class="chip st-${a.status}">${ST[a.status]}</span><button class="dots" onclick="apMenu('${a.id}')" aria-label="Opciones">⋯</button></span></div>
+ <div class="sm mut">${proChip(a.pid)} ${esc(s.name+addTxt(a))} · ${money(a.price)}${opts.date?' · '+dShort(a.date):''}</div>${a.dep&&a.status!=='done'?`<div class="xs" style="color:var(--ok);font-weight:600">✓ Abonó ${money(a.dep.amount)} · falta ${money(a.price-a.dep.amount)}</div>`:''}${a.note?`<div class="xs mut">📝 ${esc(a.note)}</div>`:''}
+ <div class="acts">${acts}</div></div></div>`}
+function dayAppts(d){return AP.filter(a=>a.date===d).sort((a,b)=>toMin(a.time)-toMin(b.time))}
+function lastVisit(cid){const v=AP.filter(a=>a.cid===cid&&a.status==='done').map(a=>a.date).sort();return v[v.length-1]||null}
+function nextVisit(cid){const t=iso(today());return AP.filter(a=>a.cid===cid&&a.date>=t&&(a.status==='pend'||a.status==='conf')).map(a=>a.date).sort()[0]||null}
+
+function dueList(){const t=iso(today());const out=[];CL.forEach(c=>{if(nextVisit(c.id))return;const last=AP.filter(a=>a.cid===c.id&&a.status==='done').sort((a,b)=>b.date.localeCompare(a.date))[0];if(!last)return;const s=svc(last.sid);if(!s.every)return;const due=addD(last.date,s.every);const left=daysBetween(t,due);if(left<=3&&left>=-30)out.push({c,a:last,due,left})});return out.sort((a,b)=>a.left-b.left)}
+function vHoy(){const t=iso(today()),tm=addD(t,1),list=dayAppts(t),act=list.filter(active);
+ const income=list.reduce((s,a)=>s+apInc(a)+apTip(a),0);
+ const expected=act.filter(a=>a.status!=='noshow').reduce((s,a)=>s+a.price,0);
+ const now=new Date(),nm=now.getHours()*60+now.getMinutes();
+ const next=act.find(a=>(a.status==='pend'||a.status==='conf')&&toMin(a.time)+(a.dur||60)>nm);
+ const h=now.getHours(),sal=h<12?'Buenos días':h<19?'Buenas tardes':'Buenas noches';
+ const tom=dayAppts(tm).filter(a=>a.status==='pend'||a.status==='conf');const pendRem=tom.filter(a=>!a.rem);
+ const due=dueList().slice(0,4),dueIds=new Set(due.map(x=>x.c.id));
+ const away=CL.map(c=>({c,l:lastVisit(c.id)})).filter(x=>x.l&&!dueIds.has(x.c.id)&&daysBetween(x.l,t)>=35&&!nextVisit(x.c.id)).sort((a,b)=>a.l<b.l?-1:1).slice(0,3);
+ const md=t.slice(5),wk=[0,1,2,3,4,5,6].map(i=>addD(t,i).slice(5));
+ const bd=CL.filter(c=>c.bday&&wk.includes(c.bday));
+ const wl=WL.filter(w=>!w.date||w.date>=t).length;
+ return `<div class="dash"><div class="d1"><div class="hero"><div class="mut sm">${cap(dLong(t))}</div><h1 style="margin-top:2px">${sal}, ${esc(B.owner.split(' ')[0])}</h1>
+ <div class="mut sm" style="position:relative;z-index:1">${next?`Próxima: <b style="color:#fff">${h12(next.time)}</b> · ${esc(cli(next.cid).name)}, ${esc(svc(next.sid).name.toLowerCase())}`:act.length?'Ya no tienes más citas pendientes hoy ✨':'Hoy tienes la agenda libre.'}</div>
+ <div class="kpis"><div class="kpi"><b>${act.length}</b><span>citas hoy</span></div><div class="kpi"><b>${money(income)}</b><span>cobrado</span></div><div class="kpi"><b>${money(expected)}</b><span>esperado</span></div></div></div>
+ <div class="row" style="gap:8px;margin-bottom:12px"><button class="btn grow nw" onclick="shareSlots()">📣 Mis espacios</button><button class="btn grow nw" onclick="pasteOrder()">📥 Pegar pedido</button></div>
+ <div class="card"><div class="row between" style="margin-bottom:6px"><h2 style="margin:0">Citas de hoy</h2><button class="btn s ghost" onclick="selDay=iso(today());go('agenda')">Ver agenda</button></div>
+ ${list.length?list.map(a=>apRow(a)).join(''):`<div class="empty">Sin citas para hoy.<br><button class="btn pri" style="margin-top:10px" onclick="newAppt()">Agendar una cita</button></div>`}</div>
+ </div><div class="d2">${tom.length?`<div class="card"><h2>Recordatorios para mañana</h2><p class="sm mut" style="margin:-4px 0 8px">${pendRem.length?`Te faltan ${pendRem.length} por enviar. Un recordatorio reduce las citas perdidas.`:'¡Listo! Ya recordaste todas las citas de mañana.'}</p>
+ ${tom.map(a=>`<div class="li"><div><b>${h12(a.time)}</b> · ${esc(cli(a.cid).name)}<div class="xs mut">${esc(svc(a.sid).name)}</div></div><button class="btn s ${a.rem?'ghost':'wa'}" onclick="wa('rec','${a.id}')">${a.rem?'✓ Enviado':'Enviar'}</button></div>`).join('')}</div>`:''}
+ ${due.length?`<div class="card"><h2>🔁 Ya les toca volver</h2><p class="sm mut" style="margin:-4px 0 8px">Según cada cuánto se hacen su servicio.</p>${due.map(x=>`<div class="li"><div><b>${esc(x.c.name)}</b><div class="xs mut">${esc(svc(x.a.sid).name)} · ${x.left>0?'le toca en '+x.left+' día'+(x.left===1?'':'s'):x.left===0?'le toca hoy':'le tocaba hace '+(-x.left)+' día'+(x.left===-1?'':'s')}</div></div><div class="row" style="gap:6px"><button class="btn s wa" onclick="wa('toca','${x.a.id}')">Escribir</button><button class="btn s" onclick="newAppt(null,null,'${x.c.id}','${x.a.sid}')">Agendar</button></div></div>`).join('')}</div>`:''}
+ ${bd.length?`<div class="card"><h2>🎂 Cumpleaños esta semana</h2>${bd.map(c=>`<div class="li"><div><b>${esc(c.name)}</b><div class="xs mut">${c.bday===md?'¡Hoy!':dShort(t.slice(0,4)+'-'+c.bday)}</div></div><button class="btn s wa" onclick="wa('cumple',null,'${c.id}')">Felicitar</button></div>`).join('')}</div>`:''}
+ ${away.length?`<div class="card"><h2>Clientes para invitar de nuevo</h2><p class="sm mut" style="margin:-4px 0 8px">No vienen hace más de 5 semanas y no tienen cita.</p>${away.map(x=>`<div class="li"><div><b>${esc(x.c.name)}</b><div class="xs mut">Última visita hace ${daysBetween(x.l,t)} días</div></div><button class="btn s wa" onclick="wa('vuelve',null,'${x.c.id}')">Invitar</button></div>`).join('')}</div>`:''}
+ ${wl?`<div class="card row between" style="cursor:pointer" onclick="vWait()"><span>⏳ <b>${wl}</b> en lista de espera</span><span class="mut">›</span></div>`:''}</div></div>`}
+function freeOne(d,pid){if(!B.days.includes(parse(d).getDay()))return[];const o=toMin(B.open),c=toMin(B.close);let cur=o;const out=[];
+ dayAppts(d).filter(a=>active(a)&&a.status!=='noshow'&&(!pid||!a.pid||a.pid===pid)).forEach(a=>{const s=toMin(a.time),e=s+(a.dur||60);if(s-cur>=30)out.push([Math.max(cur,o),Math.min(s,c)]);cur=Math.max(cur,e)});if(c-cur>=30)out.push([cur,c]);
+ const t=iso(today());if(d===t){const n=new Date(),nm=n.getHours()*60+n.getMinutes();return out.map(([a,b])=>[Math.max(a,Math.ceil(nm/15)*15),b]).filter(([a,b])=>b-a>=30)}return d<t?[]:out}
+function mergeR(rs){rs=rs.slice().sort((a,b)=>a[0]-b[0]);const o=[];rs.forEach(r=>{const l=o[o.length-1];if(l&&r[0]<=l[1])l[1]=Math.max(l[1],r[1]);else o.push([r[0],r[1]])});return o}
+function freeSlots(d,pid){const ps=actPR();if(pid||!ps.length)return freeOne(d,pid);return mergeR(ps.flatMap(p=>freeOne(d,p.id)))}
+function agGrid(day,ps){const o=toMin(B.open),c=toMin(B.close),pp=1.2,hh=Math.round(60*pp),H=(c-o)*pp;
+ const lab=[];for(let m=Math.ceil(o/60)*60;m<=c;m+=60)lab.push(`<span style="top:${(m-o)*pp}px">${h12(fromMin(m)).replace(':00','')}</span>`);
+ const occ=p=>{const mins=dayAppts(day).filter(a=>a.pid===p.id&&active(a)&&a.status!=='noshow').reduce((s,a)=>s+(a.dur||60),0);return Math.min(100,Math.round(mins/(c-o)*100))};
+ const cols=`grid-template-columns:56px repeat(${ps.length},minmax(0,1fr))`;
+ const now=new Date(),nm=now.getHours()*60+now.getMinutes(),isT=day===iso(today())&&nm>o&&nm<c;
+ return `<div class="ag"><div class="ag-h" style="${cols}"><span></span>${ps.map(p=>`<div><span class="dot" style="background:${p.color}"></span>${esc(p.name.split(' ')[0])}<small>${occ(p)}% ocupado · ${dayAppts(day).filter(a=>a.pid===p.id&&active(a)).length} citas</small></div>`).join('')}</div>
+ <div class="ag-b" style="${cols};height:${H}px"><div class="ag-t">${lab.join('')}</div>${ps.map(p=>`<div class="ag-c" style="--hh:${hh}px" onclick="agClick(event,'${p.id}')">${dayAppts(day).filter(a=>a.pid===p.id&&active(a)).map(a=>{const s=svc(a.sid),top=(toMin(a.time)-o)*pp,h=Math.max(28,(a.dur||60)*pp-3);return `<div class="ag-a ${a.status}" style="--pc:${p.color};top:${top}px;height:${h}px" onclick="event.stopPropagation();apMenu('${a.id}')" title="${esc(cli(a.cid).name)} · ${esc(s.name)}"><b>${a.time} ${esc(cli(a.cid).name)}</b><span>${esc(s.name+addTxt(a))}${h>60?'<br>'+money(a.price)+' · '+ST[a.status]:''}</span></div>`}).join('')}</div>`).join('')}${isT?`<div class="ag-now" style="top:${(nm-o)*pp}px"></div>`:''}</div>
+ <p class="xs mut" style="margin-top:10px">Toca un espacio vacío en la columna de un profesional para agendar a esa hora. Toca una cita para ver sus opciones.</p></div>`}
+function agClick(e,pid){const r=e.currentTarget.getBoundingClientRect(),o=toMin(B.open),m=o+Math.floor((e.clientY-r.top)/1.2/15)*15;newAppt(selDay,fromMin(Math.min(m,toMin(B.close)-15)),null,null,pid)}
+function vAgenda(){if(!weekStart){const d=parse(selDay);d.setDate(d.getDate()-((d.getDay()+6)%7));weekStart=iso(d)}
+ const days=[0,1,2,3,4,5,6].map(i=>addD(weekStart,i)),t=iso(today()),ps=actPR();
+ const inP=a=>!selPro||a.pid===selPro;
+ const list=dayAppts(selDay).filter(inP),act=list.filter(active);
+ let items=[...list.map(a=>({m:toMin(a.time),h:apRow(a)}))];
+ if(selPro||ps.length<=1)items.push(...freeSlots(selDay,selPro||undefined).map(([a,b])=>({m:a,h:`<div class="free"><span>Libre ${fromMin(a)} – ${fromMin(b)}</span><button class="btn s" onclick="newAppt('${selDay}','${fromMin(a)}',null,null,'${selPro}')">+ Agendar</button></div>`})));
+ items.sort((x,y)=>x.m-y.m);
+ const closed=!B.days.includes(parse(selDay).getDay());
+ const mo=parse(weekStart).toLocaleDateString('es-CO',{month:'long',year:'numeric'});
+ const wl=WL.filter(w=>!w.date||w.date>=t).length;
+ const occ=ps.map(p=>{const mins=dayAppts(selDay).filter(a=>a.pid===p.id&&active(a)&&a.status!=='noshow').reduce((s,a)=>s+(a.dur||60),0),tot=toMin(B.close)-toMin(B.open);return [p,Math.min(100,Math.round(mins/tot*100))]});
+ return `<div class="row between" style="margin-bottom:10px"><h1>${cap(mo)}</h1><div class="row"><button class="btn s ghost" onclick="shiftW(-7)">‹</button><button class="btn s ghost" onclick="weekStart=null;selDay=iso(today());render()">Hoy</button><button class="btn s ghost" onclick="shiftW(7)">›</button></div></div>
+ <div class="week">${days.map(d=>{const n=AP.filter(a=>a.date===d&&active(a)&&inP(a)).length,dt=parse(d);return `<button class="wd ${d===selDay?'on':''} ${d===t?'today':''}" onclick="selDay='${d}';render()"><small>${dt.toLocaleDateString('es-CO',{weekday:'short'}).replace('.','')}</small><b>${dt.getDate()}</b><i class="${n?'':'no'}"></i></button>`}).join('')}</div>
+ ${ps.length>1?`<div class="pills" style="margin-bottom:10px;flex-wrap:nowrap;overflow-x:auto"><button class="pill nw ${!selPro?'on':''}" onclick="selPro='';render()">👥 Todos</button>${ps.map(p=>`<button class="pill nw ${selPro===p.id?'on':''}" onclick="selPro='${p.id}';render()"><span class="dot" style="background:${p.color}"></span>${esc(p.name.split(' ')[0])}</button>`).join('')}</div>`:''}
+ <div class="row" style="gap:6px;margin-bottom:12px;overflow-x:auto"><button class="btn s grow nw" onclick="shareSlots()">📣 Espacios</button><button class="btn s grow nw" onclick="vLink()">🔗 Mi link</button><button class="btn s grow nw" onclick="vWait()">⏳ Espera${wl?' ('+wl+')':''}</button></div>
+ ${isWide()&&!selPro&&ps.length>1&&!(closed&&!list.length)?agGrid(selDay,ps):`${!selPro&&ps.length>1&&!closed?`<div class="card"><h2 style="font-size:17px">Ocupación del día</h2>${occ.map(([p,v])=>`<div class="occ"><span class="nw" style="width:86px"><span class="dot" style="background:${p.color}"></span>${esc(p.name.split(' ')[0])}</span><div class="ob"><i style="width:${v}%;background:${p.color}"></i></div><span class="xs mut" style="width:38px;text-align:right">${v}%</span></div>`).join('')}<div class="xs mut" style="margin-top:6px">Toca un nombre arriba para ver su agenda y sus espacios libres.</div></div>`:''}
+ <div class="card"><div class="row between" style="margin-bottom:6px"><div><h2 style="margin:0">${cap(dLong(selDay))}</h2><div class="sm mut">${selPro?esc(pro(selPro).name)+' · ':''}${act.length} cita${act.length===1?'':'s'} · ${money(act.reduce((s,a)=>s+a.price,0))}</div></div>${selPro?`<button class="btn s wa nw" onclick="sendProAgenda('${selPro}')">📲 Enviarle</button>`:''}</div>
+ ${closed&&!list.length?`<div class="empty">Este día no trabajan según el horario.<br><button class="btn ghost s" style="margin-top:8px" onclick="newAppt('${selDay}')">Agendar de todas formas</button></div>`:items.length?items.map(i=>i.h).join(''):`<div class="empty">No hay citas este día.</div>`}</div>`}`}
+function shiftW(n){weekStart=addD(weekStart,n);selDay=addD(selDay,n);render()}
+
+function vClientes(){const t=iso(today());let l=CL.map(c=>({c,l:lastVisit(c.id),n:AP.filter(a=>a.cid===c.id&&a.status==='done').length,ns:noShows(c.id)}));
+ if(q){const k=normN(q);l=l.filter(x=>normN(x.c.name).includes(k)||(x.c.phone||'').includes(q))}
+ l.sort((a,b)=>(b.l||'').localeCompare(a.l||'')||a.c.name.localeCompare(b.c.name));
+ return `<div class="row between" style="margin-bottom:10px"><h1>Clientes</h1><button class="btn s pri" onclick="editCli()">+ Nuevo</button></div>
+ <input placeholder="Buscar por nombre o celular" value="${esc(q)}" oninput="q=this.value;const p=this.selectionStart;render();const i=document.querySelector('#app input');i.focus();i.setSelectionRange(p,p)" style="margin-bottom:12px">
+ <div class="card">${l.length?l.map(x=>`<div class="cl" onclick="openCli('${x.c.id}')"><div class="av" style="background:${avColor(x.c.name)}">${esc(initials(x.c.name))}</div><div class="grow"><b>${esc(x.c.name)}</b>${x.ns?` <span class="chip st-noshow">⚠️ ${x.ns} no vino</span>`:''}<div class="xs mut">${x.n} visita${x.n===1?'':'s'}${x.l?' · '+agoTxt(x.l):''}</div></div><span class="mut">›</span></div>`).join(''):`<div class="empty">${CL.length?'No hay resultados.':'Aún no tienes clientes. Se crean solos cuando agendas una cita.'}</div>`}</div>
+ <p class="xs mut" style="text-align:center">${CL.length} cliente${CL.length===1?'':'s'} en total</p>`}
+function openCli(id){const c=cli(id);if(!c.id)return;const h=AP.filter(a=>a.cid===id).sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));const done=h.filter(a=>a.status==='done');
+ const tot=h.reduce((s,a)=>s+apInc(a),0),ns=noShows(id);
+ const fav={};done.forEach(a=>fav[a.sid]=(fav[a.sid]||0)+1);const fv=Object.entries(fav).sort((a,b)=>b[1]-a[1])[0];
+ modal(`<div class="row" style="margin-bottom:12px"><div class="av" style="background:${avColor(c.name)};width:54px;height:54px;font-size:19px">${esc(initials(c.name))}</div><div class="grow"><h2 style="margin:0">${esc(c.name)}</h2><div class="sm mut">${esc(c.phone||'Sin celular')}${c.bday?' · 🎂 '+dShort('2000-'+c.bday):''}</div></div></div>
+ <div class="kpis" style="margin:0 0 12px"><div class="card" style="margin:0;padding:10px"><b>${done.length}</b><div class="xs mut">visitas</div></div><div class="card" style="margin:0;padding:10px"><b>${money(tot)}</b><div class="xs mut">total</div></div><div class="card" style="margin:0;padding:10px"><b>${ns}</b><div class="xs mut">no vino</div></div></div>
+ ${ns>=2?`<div class="banner" style="background:var(--badb);color:var(--bad)">⚠️ Ha faltado ${ns} veces. Pídele abono antes de agendar.</div>`:''}
+ ${fv?`<p class="sm" style="margin-bottom:8px">⭐ Su servicio favorito: <b>${esc(svc(fv[0]).name)}</b></p>`:''}
+ ${c.notes?`<div class="card" style="background:var(--card2)"><div class="xs mut">Notas</div>${esc(c.notes).replace(/\n/g,'<br>')}</div>`:''}
+ <div class="row wrap" style="margin-bottom:12px"><button class="btn pri grow" onclick="newAppt(null,null,'${id}')">Agendar</button>${c.phone?`<a class="btn wa grow" href="https://wa.me/${phoneWA(c.phone)}" target="_blank">WhatsApp</a>`:''}<button class="btn ghost" onclick="editCli('${id}')">Editar</button></div>
+ <div class="row between"><h2 style="margin:0">Fotos de trabajos</h2><label class="btn s">📷 Agregar<input type="file" accept="image/*" style="display:none" onchange="addPhoto(this,'${id}')"></label></div>
+ <div id="phs" class="phs" style="margin:10px 0 14px"><span class="xs mut">Cargando…</span></div>
+ <h2>Historial</h2><div class="card">${h.length?h.slice(0,30).map(a=>`<div class="li"><div><b>${esc(svc(a.sid).name)}</b><div class="xs mut">${dShort(a.date)} · ${h12(a.time)}</div></div><div style="text-align:right"><div class="sm">${money(apInc(a)||a.price)}</div><span class="chip st-${a.status}">${ST[a.status]}</span></div></div>`).join(''):'<div class="empty">Sin citas todavía.</div>'}</div>`);
+ drawPhotos(id)}
+function editCli(id){const c=id?cli(id):{name:'',phone:'',notes:'',bday:''};const[bm,bdd]=(c.bday||'-').split('-');
+ modal(`<h2>${id?'Editar cliente':'Nuevo cliente'}</h2><label class="f">Nombre</label><input id="cn" value="${esc(c.name)}" placeholder="Ej: Laura Gómez">
+ <label class="f">Celular (WhatsApp)</label><input id="cp" value="${esc(c.phone)}" inputmode="tel" placeholder="300 123 4567">
+ <label class="f">Cumpleaños (opcional)</label><div class="row"><select id="cbd"><option value="">Día</option>${Array.from({length:31},(_,i)=>`<option ${+bdd===i+1?'selected':''}>${i+1}</option>`).join('')}</select><select id="cbm"><option value="">Mes</option>${['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'].map((m,i)=>`<option value="${i+1}" ${+bm===i+1?'selected':''}>${m}</option>`).join('')}</select></div>
+ <label class="f">Notas</label><textarea id="cno" placeholder="Ej: le gusta el diseño francés, alérgica al acrílico">${esc(c.notes)}</textarea><div id="cer" class="err"></div>
+ <button class="btn pri full" style="margin-top:14px" onclick="saveCli('${id||''}')">Guardar</button>${id?`<button class="btn bad full" style="margin-top:8px" onclick="delCli('${id}')">Eliminar cliente</button>`:''}`)}
+function saveCli(id){const n=$('#cn').value.trim();if(!n){$('#cer').textContent='Escribe el nombre.';return}const d=$('#cbd').value,m=$('#cbm').value;
+ const o={name:n,phone:$('#cp').value.trim(),notes:$('#cno').value.trim(),bday:d&&m?pad(m)+'-'+pad(d):''};
+ if(id)Object.assign(cli(id),o);else{o.id=uid();o.created=iso(today());CL.push(o);id=o.id}save();render();openCli(id)}
+function delCli(id){const n=AP.filter(a=>a.cid===id).length;if(!$('#ov').dataset.sure){$('#ov').dataset.sure=1;$('#cer').textContent=`Se borrarán también sus ${n} cita${n===1?'':'s'} y sus fotos. Toca de nuevo para confirmar.`;return}
+ CL=CL.filter(c=>c.id!==id);AP=AP.filter(a=>a.cid!==id);WL=WL.filter(w=>w.cid!==id);save();photosDB('readwrite',st=>{const r=st.index('cid').openCursor(IDBKeyRange.only(id));r.onsuccess=()=>{const c=r.result;if(c){c.delete();c.continue()}}});closeM();render()}
+/* ---------- Citas ---------- */
+let draft=null;
+function newAppt(date,time,cid,sid,pid){overlapOK=false;const s0=sid?svc(sid):SV[0];draft={id:null,date:date||(tab==='agenda'?selDay:iso(today())),time:time||'',cid:cid||'',sid:s0?s0.id:'',add:[],price:s0?s0.price:0,dur:s0?s0.dur:60,note:'',newName:'',newPhone:'',dep:null,pid:pid||(tab==='agenda'&&selPro)||''};
+ if(!draft.pid&&cid){const last=AP.filter(a=>a.cid===cid&&a.pid).sort((a,b)=>b.date.localeCompare(a.date))[0];if(last&&pro(last.pid).on!==false)draft.pid=last.pid}
+ if(!draft.time){const fs=freeSlots(draft.date,draft.pid||undefined);draft.time=fs[0]?fromMin(fs[0][0]):B.open}
+ if(!draft.pid)draft.pid=autoPro(draft.date,draft.time,draft.dur);apForm()}
+function autoPro(d,t,dur){const s=toMin(t),e=s+(dur||30);const ps=actPR();const fr=ps.find(p=>!AP.some(a=>a.pid===p.id&&a.date===d&&active(a)&&a.status!=='noshow'&&toMin(a.time)<e&&toMin(a.time)+(a.dur||60)>s));return (fr||ps[0]||{id:''}).id}
+function editAppt(id){const a=AP.find(x=>x.id===id);overlapOK=false;draft={...a,add:(a.add||[]).map(x=>{const o=(B.addons||[]).find(y=>y.name===x[0]);return o?o.id:null}).filter(Boolean),newName:'',newPhone:''};apForm()}
+function apForm(){const d=draft,c=d.cid?cli(d.cid):null,ns=d.cid?noShows(d.cid):0,s=svc(d.sid),sug=s.dep||0,ps=actPR();
+ const opts=CL.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<option value="${x.id}" ${x.id===d.cid?'selected':''}>${esc(x.name)}</option>`).join('');
+ const adds=B.addons||[];
+ modal(`<div class="row between"><h2 style="margin:0">${d.id?'Editar cita':'Nueva cita'}</h2>${d.id?'':`<button class="btn s ghost" onclick="pasteOrder()">📥 Pegar pedido</button>`}</div>
+ <label class="f">Cliente</label><select id="ac" onchange="draft.cid=this.value;apForm()"><option value="">+ Cliente nuevo</option>${opts}</select>
+ ${d.cid?'':`<div class="row" style="margin-top:8px"><input id="nn" placeholder="Nombre" value="${esc(d.newName)}" oninput="draft.newName=this.value"><input id="np" placeholder="Celular" inputmode="tel" value="${esc(d.newPhone)}" oninput="draft.newPhone=this.value"></div>`}
+ ${ns?`<div class="banner" style="background:var(--badb);color:var(--bad);margin:8px 0 0">⚠️ ${esc(c.name.split(' ')[0])} no vino ${ns} vez${ns===1?'':'es'}. Te sugerimos pedirle abono.</div>`:''}
+ ${c&&c.notes?`<div class="xs mut" style="margin-top:6px">📝 ${esc(c.notes)}</div>`:''}
+ <label class="f">Servicio</label><div class="pills">${SV.map(x=>`<button class="pill ${x.id===d.sid?'on':''}" onclick="pickSvc('${x.id}')">${esc(x.name)} · ${money(x.price)}</button>`).join('')}</div>
+ ${adds.length?`<label class="f">Adicionales</label><div class="pills">${adds.map(x=>`<button class="pill ${(d.add||[]).includes(x.id)?'on':''}" onclick="togAdd('${x.id}')">${(d.add||[]).includes(x.id)?'✓ ':'+ '}${esc(x.name)} ${money(x.price)}</button>`).join('')}</div>`:''}
+ ${ps.length?`<label class="f">Profesional</label><div class="pills">${ps.map(p=>`<button class="pill ${d.pid===p.id?'on':''}" onclick="draft.pid='${p.id}';draft.time=document.querySelector('#at').value;apForm()"><span class="dot" style="background:${p.color}"></span>${esc(p.name.split(' ')[0])}</button>`).join('')}</div>`:''}
+ <div class="tot"><div><span class="xs mut">Total a pagar</span><b>${money(d.price)}</b></div><div style="text-align:right"><span class="xs mut">${d.dur} min</span>${sug?`<div class="xs" style="color:var(--ok);font-weight:600">Abono para separar: ${money(sug)}</div>`:''}</div></div>
+ <div class="row"><div class="grow"><label class="f">Fecha</label><input type="date" id="ad" value="${d.date}" onchange="draft.date=this.value;apForm()"></div><div class="grow"><label class="f">Hora</label><input type="time" id="at" value="${d.time}" step="300" onchange="draft.time=this.value"></div></div>
+ ${(()=>{const f=freeSlots(d.date,d.pid||undefined);return f.length?`<div class="xs mut" style="margin-top:6px">Libre${d.pid?' ('+esc(pro(d.pid).name.split(' ')[0])+')':''}: ${f.map(([a,b])=>`<a href="#" onclick="draft.time='${fromMin(a)}';apForm();return false">${fromMin(a)}–${fromMin(b)}</a>`).join(' · ')}</div>`:''})()}
+ <details style="margin-top:10px"><summary class="sm mut" style="cursor:pointer">Cambiar precio o duración de esta cita</summary><div class="row"><div class="grow"><label class="f">Precio</label><input id="apr" inputmode="numeric" value="${d.price}" oninput="draft.price=+this.value.replace(/\\D/g,'')||0"></div><div class="grow"><label class="f">Duración (min)</label><input id="adu" inputmode="numeric" value="${d.dur}" oninput="draft.dur=+this.value.replace(/\\D/g,'')||0"></div></div></details>
+ <label class="f">Abono${sug&&!d.dep?` · <a href="#" onclick="draft.dep={amount:${sug},method:document.querySelector('#adm').value};apForm();return false">usar ${money(sug)}</a>`:''}</label><div class="row"><input id="adp" inputmode="numeric" placeholder="$0" value="${d.dep?d.dep.amount:''}" oninput="const v=+this.value.replace(/\\D/g,'')||0;draft.dep=v?{amount:v,method:(draft.dep&&draft.dep.method)||'Nequi'}:null"><select id="adm" onchange="if(draft.dep)draft.dep.method=this.value">${METHODS.map(m=>`<option ${d.dep&&d.dep.method===m||(!d.dep&&m==='Nequi')?'selected':''}>${m}</option>`).join('')}</select></div>
+ <label class="f">Nota (opcional)</label><input id="ano" value="${esc(d.note)}" placeholder="Ej: trae su propio diseño" oninput="draft.note=this.value">
+ <div id="aer" class="err"></div>
+ <button class="btn pri full" style="margin-top:14px" onclick="saveAppt()">${d.id?'Guardar cambios':'Agendar cita'}</button>`)}
+function recalc(){const s=svc(draft.sid);const ad=(draft.add||[]).map(addOf).filter(Boolean);draft.price=s.price+ad.reduce((t,x)=>t+x.price,0);draft.dur=s.dur+ad.reduce((t,x)=>t+(x.min||0),0)}
+function pickSvc(id){draft.sid=id;recalc();apForm()}
+function togAdd(id){draft.add=draft.add||[];draft.add=draft.add.includes(id)?draft.add.filter(x=>x!==id):[...draft.add,id];recalc();apForm()}
+function saveAppt(){const d=draft;d.time=$('#at').value;d.date=$('#ad').value;
+ if(!d.cid){const n=(d.newName||'').trim();if(!n){$('#aer').textContent='Elige un cliente o escribe el nombre del nuevo.';return}
+  const ex=CL.find(c=>normN(c.name)===normN(n));if(ex){d.cid=ex.id;if(!ex.phone&&d.newPhone)ex.phone=d.newPhone.trim()}else{const c={id:uid(),name:n,phone:(d.newPhone||'').trim(),notes:'',bday:'',created:iso(today())};CL.push(c);d.cid=c.id}}
+ if(!d.sid){$('#aer').textContent='Elige un servicio. Puedes crearlos en Más → Servicios.';return}
+ if(!d.date||!d.time){$('#aer').textContent='Elige fecha y hora.';return}
+ if(actPR().length&&!d.pid){$('#aer').textContent='Elige el profesional que atiende.';return}
+ if(d.dep){d.dep.method=$('#adm').value;if(!d.dep.date)d.dep.date=iso(today())}
+ const s=toMin(d.time),e=s+(d.dur||30);
+ const cross=AP.find(a=>a.id!==d.id&&a.date===d.date&&active(a)&&a.status!=='noshow'&&(!d.pid||!a.pid||a.pid===d.pid)&&toMin(a.time)<e&&toMin(a.time)+(a.dur||60)>s);
+ if(cross&&!overlapOK){overlapOK=true;$('#aer').textContent=`${d.pid?pro(d.pid).name.split(' ')[0]+' ya tiene':'Se cruza con'} a ${cli(cross.cid).name} a las ${cross.time}. Toca de nuevo para agendar igual.`;return}
+ const add=(d.add||[]).map(addOf).filter(Boolean).map(x=>[x.name,x.price]);
+ const isNew=!d.id;const rec={id:d.id||uid(),cid:d.cid,sid:d.sid,pid:d.pid||'',add,date:d.date,time:d.time,dur:d.dur,price:d.price,note:(d.note||'').trim(),status:d.status||'pend',paid:d.paid||null,rem:d.rem||0,dep:d.dep||null,src:d.src||''};
+ if(isNew)AP.push(rec);else Object.assign(AP.find(a=>a.id===rec.id),rec);
+ if(d.wlId)WL=WL.filter(w=>w.id!==d.wlId);
+ save();selDay=rec.date;weekStart=null;
+ const c=cli(rec.cid);
+ if(isNew){modal(`<div style="text-align:center"><div style="font-size:42px">✅</div><h2>Cita agendada</h2><p class="mut">${esc(c.name)} · ${esc(svc(rec.sid).name+addTxt(rec))}<br>${rec.pid?'con '+esc(pro(rec.pid).name)+'<br>':''}${cap(dLong(rec.date))}, ${h12(rec.time)}<br><b style="color:var(--ink)">Total ${money(rec.price)}</b>${rec.dep?` · <b style="color:var(--ok)">abonó ${money(rec.dep.amount)}</b>`:''}</p>
+ ${c.phone?`<button class="btn wa full" style="margin-top:14px" onclick="wa('conf','${rec.id}');closeM()">Enviar confirmación por WhatsApp</button>`:''}<button class="btn ghost full" style="margin-top:8px" onclick="closeM()">Listo</button></div>`)}else closeM();render()}
+function setSt(id,st){const a=AP.find(x=>x.id===id);const was=a.status;a.status=st;if(st!=='done')a.paid=null;save();closeM();render();
+ if(st==='cancel'&&was!=='cancel'&&a.date>=iso(today())){const w=WL.filter(x=>!x.date||x.date===a.date);if(w.length)freedModal(a,w)}}
+function freedModal(a,w){modal(`<h2>Se liberó un espacio 🎉</h2><p class="sm mut">${cap(dLong(a.date))}, ${h12(a.time)} (${a.dur||60} min). Estas personas están en lista de espera:</p>
+ <div class="card" style="margin-top:10px">${w.map(x=>{const c=cli(x.cid);return `<div class="li"><div><b>${esc(c.name)}</b><div class="xs mut">${esc(x.sid?svc(x.sid).name:'Cualquier servicio')}${x.date?' · '+dShort(x.date):' · cualquier día'}</div></div><div class="row" style="gap:6px"><button class="btn s wa" onclick="waWait('${x.id}','${a.date}','${a.time}')">Avisar</button><button class="btn s pri" onclick="fromWait('${x.id}','${a.date}','${a.time}')">Agendar</button></div></div>`}).join('')}</div>
+ <button class="btn ghost full" onclick="closeM()">Cerrar</button>`)}
+function doneAppt(id){const a=AP.find(x=>x.id===id);let m=store.get('lastM','Efectivo');const dep=depOf(a);
+ modal(`<h2>Cita atendida</h2><p class="sm mut">${esc(cli(a.cid).name)} · ${esc(svc(a.sid).name)} · ${money(a.price)}</p>
+ ${dep?`<div class="banner" style="background:var(--okb);color:var(--ok);margin-top:10px">Ya había abonado ${money(dep)} por ${esc(a.dep.method)}</div>`:''}
+ <label class="f">${dep?'¿Cuánto pagó hoy (el saldo)?':'¿Cuánto pagó?'}</label><input id="pm" inputmode="numeric" value="${Math.max(0,a.price-dep)}" style="font-size:22px;font-weight:700">
+ <label class="f">Medio de pago</label><div class="pills" id="pms">${METHODS.map(x=>`<button class="pill ${x===m?'on':''}" onclick="document.querySelectorAll('#pms .pill').forEach(p=>p.classList.remove('on'));this.classList.add('on')">${x}</button>`).join('')}</div>
+ <label class="f">Propina (opcional)</label><input id="ptp" inputmode="numeric" placeholder="$0">
+ <button class="btn ok full" style="margin-top:16px" onclick="confirmDone('${id}')">Guardar pago</button>`)}
+function confirmDone(id){const a=AP.find(x=>x.id===id);const m=$('#pms .pill.on').textContent;store.set('lastM',m);a.status='done';a.paid={amount:+$('#pm').value.replace(/\D/g,'')||0,method:m,tip:+$('#ptp').value.replace(/\D/g,'')||0};save();render();
+ const s=svc(a.sid),c=cli(a.cid),has=nextVisit(a.cid),nd=s.every?addD(a.date,s.every):null;
+ modal(`<div style="text-align:center"><div style="font-size:40px">💖</div><h2>¡Pago guardado!</h2><p class="mut">${money(apInc(a))}${apTip(a)?' + '+money(apTip(a))+' de propina':''} · ${esc(m)}</p></div>
+ ${nd&&!has?`<div class="card" style="margin-top:12px"><b>🔁 ¿Le dejas la próxima cita?</b><p class="sm mut" style="margin:4px 0 10px">${esc(s.name)} se repite cada ${s.every} días. Le tocaría el <b>${dLong(nd)}</b>.</p><button class="btn pri full" onclick="newAppt('${nd}',null,'${a.cid}','${a.sid}')">Agendar próxima cita</button></div>`:''}
+ <div style="display:grid;gap:8px;margin-top:8px"><label class="btn ghost full">📷 Foto del trabajo<input type="file" accept="image/*" style="display:none" onchange="addPhoto(this,'${a.cid}',true)"></label>
+ ${c.phone?`<button class="btn ghost full" onclick="wa('gracias','${a.id}')">💬 Enviar agradecimiento</button>`:''}
+ <button class="btn ghost full" onclick="closeM()">Listo</button></div>`)}
+function apMenu(id){const a=AP.find(x=>x.id===id),c=cli(a.cid);
+ modal(`<h2>${esc(c.name)}</h2><p class="sm mut" style="margin-bottom:12px">${esc(svc(a.sid).name)} · ${cap(dLong(a.date))}, ${h12(a.time)}</p>
+ <div style="display:grid;gap:8px"><button class="btn ghost full" onclick="editAppt('${id}')">✏️ Editar, mover o registrar abono</button>
+ ${c.phone?`<button class="btn ghost full" onclick="wa('rec','${id}');closeM()">💬 Enviar recordatorio</button>`:''}
+ <button class="btn ghost full" onclick="closeM();openCli('${c.id}')">👤 Ver ficha del cliente</button>
+ ${a.status!=='pend'?`<button class="btn ghost full" onclick="setSt('${id}','pend')">↩️ Volver a pendiente</button>`:''}
+ ${a.status!=='noshow'?`<button class="btn ghost full" onclick="setSt('${id}','noshow')">🚫 No vino${a.dep?' (se queda el abono)':''}</button>`:''}
+ ${a.status!=='cancel'?`<button class="btn ghost full" onclick="setSt('${id}','cancel')">✖️ Cancelar cita</button>`:''}
+ <button class="btn bad full" onclick="AP=AP.filter(x=>x.id!=='${id}');save();closeM();render()">🗑️ Eliminar</button></div>`)}
+/* ---------- Caja ---------- */
+function range(p){const t=iso(today());if(p==='hoy')return[t,t];if(p==='semana'){const d=parse(t);d.setDate(d.getDate()-((d.getDay()+6)%7));return[iso(d),addD(iso(d),6)]}return[t.slice(0,8)+'01',t.slice(0,8)+'31']}
+function proStats(a,b){const inR=x=>x.date>=a&&x.date<=b;return PR.map(p=>{const r=AP.filter(x=>inR(x)&&x.pid===p.id),done=r.filter(x=>x.status==='done'),sales=r.reduce((s,x)=>s+apInc(x),0),tips=r.reduce((s,x)=>s+apTip(x),0),com=Math.round(sales*(p.comm||0)/100);return {p,n:done.length,ns:r.filter(x=>x.status==='noshow').length,sales,tips,com,pay:com+tips}}).filter(x=>x.n||x.sales||x.p.on!==false)}
+function vCaja(){const[a,b]=range(cajaP),inR=x=>x.date>=a&&x.date<=b;
+ const rows=AP.filter(inR),done=rows.filter(x=>x.status==='done'),inc=rows.reduce((s,x)=>s+apInc(x),0),tips=rows.reduce((s,x)=>s+apTip(x),0),exs=EX.filter(inR),out=exs.reduce((s,x)=>s+x.amount,0);
+ const st=proStats(a,b),coms=st.reduce((s,x)=>s+x.com,0);
+ const all=AP.filter(x=>inR(x)&&x.date<=iso(today())&&x.status!=='cancel'),ns=all.filter(x=>x.status==='noshow').length;
+ const byM={};rows.forEach(x=>{if(x.dep&&(x.status==='done'||x.status==='noshow'))byM[x.dep.method]=(byM[x.dep.method]||0)+x.dep.amount;if(x.status==='done'&&x.paid){byM[x.paid.method]=(byM[x.paid.method]||0)+x.paid.amount+(x.paid.tip||0)}});
+ const byS={};done.forEach(x=>{byS[x.sid]=byS[x.sid]||[0,0];byS[x.sid][0]++;byS[x.sid][1]+=apInc(x)});
+ const top=Object.entries(byS).sort((x,y)=>y[1][1]-x[1][1]).slice(0,5);
+ const t=iso(today()),last7=[6,5,4,3,2,1,0].map(i=>addD(t,-i)),v7=last7.map(d=>AP.filter(x=>x.date===d).reduce((s,x)=>s+apInc(x)+apTip(x),0)),mx=Math.max(...v7,1);
+ const pendDep=AP.filter(x=>x.dep&&(x.status==='pend'||x.status==='conf')).reduce((s,x)=>s+x.dep.amount,0);
+ const mxS=Math.max(...st.map(x=>x.sales),1);
+ return `<h1 style="margin-bottom:10px">Caja</h1><div class="seg">${[['hoy','Hoy'],['semana','Semana'],['mes','Mes']].map(([k,v])=>`<button class="${cajaP===k?'on':''}" onclick="cajaP='${k}';render()">${v}</button>`).join('')}</div>
+ <div class="hero"><div class="mut sm">Ganancia del salón ${cajaP==='hoy'?'hoy':cajaP==='semana'?'esta semana':'este mes'}</div><div class="serif" style="font-size:34px;position:relative;z-index:1">${money(inc-coms-out)}</div>
+ <div class="kpis"><div class="kpi"><b>${money(inc)}</b><span>ventas</span></div><div class="kpi"><b>${money(coms)}</b><span>comisiones</span></div><div class="kpi"><b>${money(out)}</b><span>gastos</span></div></div></div>
+ <div class="row" style="gap:8px;margin-bottom:12px"><button class="btn dark grow nw" onclick="closeDay()">🧾 Cierre de hoy</button><button class="btn grow nw" onclick="payroll()">💸 Liquidar equipo</button></div>
+ ${pendDep?`<div class="banner" style="background:var(--okb)">💰 Tienes <b>${money(pendDep)}</b> en abonos de citas que aún no se atienden.</div>`:''}
+ <div class="grid2"><div class="card"><h2>Equipo</h2>${st.length?st.map(x=>`<div class="li" style="display:block"><div class="row between"><b><span class="dot" style="background:${x.p.color}"></span>${esc(x.p.name)}</b><b>${money(x.sales)}</b></div><div class="ob" style="margin:6px 0"><i style="width:${Math.round(x.sales/mxS*100)}%;background:${x.p.color}"></i></div><div class="xs mut">${x.n} atendida${x.n===1?'':'s'}${x.ns?' · '+x.ns+' no vino':''} · comisión ${x.p.comm||0}% = ${money(x.com)}${x.tips?' · propinas '+money(x.tips):''} · <b style="color:var(--ink)">a pagar ${money(x.pay)}</b></div></div>`).join(''):'<div class="empty">Agrega tu equipo en Más → Equipo.</div>'}</div>
+ <div class="card"><h2>Últimos 7 días</h2><div class="bars">${v7.map((v,i)=>`<div><span style="height:${Math.round(v/mx*85)}%"></span><small>${parse(last7[i]).toLocaleDateString('es-CO',{weekday:'narrow'})}</small></div>`).join('')}</div></div>
+ <div class="card"><h2>Por medio de pago</h2>${Object.keys(byM).length?Object.entries(byM).sort((x,y)=>y[1]-x[1]).map(([m,v])=>`<div class="li"><span>${m}</span><b>${money(v)}</b></div>`).join(''):'<div class="empty">Aún no hay pagos en este periodo.</div>'}<p class="xs mut" style="margin-top:6px">Incluye propinas (${money(tips)}).</p></div>
+ <div class="card"><h2>Servicios que más dejan</h2>${top.length?top.map(([sid,[n,v]])=>`<div class="li"><div><b>${esc(svc(sid).name)}</b><div class="xs mut">${n} ${n===1?'vez':'veces'}</div></div><b>${money(v)}</b></div>`).join(''):'<div class="empty">Sin datos todavía.</div>'}
+ ${all.length?`<p class="sm mut" style="margin-top:10px">Citas perdidas (no vino): <b>${ns}</b> de ${all.length} (${Math.round(ns/all.length*100)}%)</p>`:''}</div>
+ <div class="card"><div class="row between"><h2 style="margin:0">Gastos</h2><button class="btn s pri" onclick="addExp()">+ Gasto</button></div>
+ ${exs.length?exs.sort((x,y)=>y.date.localeCompare(x.date)).map(x=>`<div class="li"><div><b>${esc(x.concept)}</b><div class="xs mut">${dShort(x.date)}</div></div><div class="row"><b>${money(x.amount)}</b><button class="btn s ghost" onclick="EX=EX.filter(e=>e.id!=='${x.id}');save();render()">✕</button></div></div>`).join(''):'<p class="sm mut" style="margin-top:8px">Registra insumos, arriendo o servicios para ver tu ganancia real.</p>'}</div></div>`}
+function payroll(){const[a,b]=range(cajaP),st=proStats(a,b).filter(x=>x.n||x.sales);const per=cajaP==='hoy'?'de hoy':cajaP==='semana'?'de la semana':'del mes';
+ modal(`<h2>Liquidar equipo</h2><p class="sm mut">Lo que le corresponde a cada profesional ${per} (${dShort(a)} – ${dShort(b>iso(today())?iso(today()):b)}). Cambia el periodo en la parte de arriba de Caja.</p>
+ <div class="card" style="margin-top:10px">${st.length?st.map(x=>`<div class="li"><div><b>${esc(x.p.name)}</b><div class="xs mut">${x.n} servicios · ventas ${money(x.sales)} · ${x.p.comm||0}%${x.tips?' + propinas':''}</div></div><div class="row" style="gap:6px"><b>${money(x.pay)}</b><button class="btn s wa" onclick="sendPay('${x.p.id}')">💬</button></div></div>`).join(''):'<div class="empty">Sin servicios en este periodo.</div>'}</div>
+ <button class="btn ghost full" onclick="closeM()">Cerrar</button>`)}
+function sendPay(pid){const[a,b]=range(cajaP),x=proStats(a,b).find(y=>y.p.id===pid);if(!x)return;const r=AP.filter(y=>y.pid===pid&&y.status==='done'&&y.date>=a&&y.date<=b).sort((p,q)=>(p.date+p.time).localeCompare(q.date+q.time));
+ const txt=`💸 Liquidación · ${B.name}\n${x.p.name}\nDel ${dShort(a)} al ${dShort(b>iso(today())?iso(today()):b)}\n\n${r.map(y=>`• ${dShort(y.date)} ${svc(y.sid).name}: ${money(apInc(y))}`).join('\n')}\n\nVentas: ${money(x.sales)}\nComisión ${x.p.comm||0}%: ${money(x.com)}\nPropinas: ${money(x.tips)}\n⭐ Total a pagar: ${money(x.pay)}`;
+ const p=phoneWA(x.p.phone);window.open('https://wa.me/'+(p||'')+'?text='+encodeURIComponent(txt),'_blank')}
+function closeDay(){const t=iso(today()),rows=AP.filter(x=>x.date===t),done=rows.filter(x=>x.status==='done'),ns=rows.filter(x=>x.status==='noshow'),pend=rows.filter(x=>x.status==='pend'||x.status==='conf');
+ const inc=rows.reduce((s,x)=>s+apInc(x),0),tips=rows.reduce((s,x)=>s+apTip(x),0),out=EX.filter(e=>e.date===t).reduce((s,e)=>s+e.amount,0),st=proStats(t,t).filter(x=>x.n||x.sales),coms=st.reduce((s,x)=>s+x.com,0);
+ const byM={};rows.forEach(x=>{if(x.dep&&(x.status==='done'||x.status==='noshow'))byM[x.dep.method]=(byM[x.dep.method]||0)+x.dep.amount;if(x.status==='done'&&x.paid)byM[x.paid.method]=(byM[x.paid.method]||0)+x.paid.amount+(x.paid.tip||0)});
+ const txt=`🧾 Cierre de caja · ${B.name}\n${cap(dLong(t))}\n\n✅ Atendidas: ${done.length}\n🚫 No vinieron: ${ns.length}${pend.length?`\n⏳ Sin cerrar: ${pend.length}`:''}\n\n💵 Ventas: ${money(inc)}\n🙌 Propinas: ${money(tips)}\n👥 Comisiones: ${money(coms)}\n🧴 Gastos: ${money(out)}\n⭐ Ganancia del salón: ${money(inc-coms-out)}\n\nPor profesional:\n${st.map(x=>`• ${x.p.name.split(' ')[0]}: ${x.n} serv. · ${money(x.sales)} · a pagar ${money(x.pay)}`).join('\n')||'• Sin servicios'}\n\nPor medio de pago:\n${Object.entries(byM).map(([m,v])=>`• ${m}: ${money(v)}`).join('\n')||'• Sin pagos'}`;
+ window._ct=txt;
+ modal(`<h2>Cierre de caja</h2>${pend.length?`<div class="banner">Tienes ${pend.length} cita${pend.length===1?'':'s'} de hoy sin marcar como atendida o no vino.</div>`:''}<pre style="white-space:pre-wrap;font-family:inherit;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px">${esc(txt)}</pre>
+ <div class="row" style="margin-top:12px"><button class="btn grow" onclick="copyTxt(window._ct)">Copiar</button><button class="btn wa grow" onclick="window.open('https://wa.me/?text='+encodeURIComponent(window._ct),'_blank')">WhatsApp</button></div>`)}
+async function copyTxt(t){try{await navigator.clipboard.writeText(t);toast('Copiado')}catch(e){const x=document.createElement('textarea');x.value=t;document.body.appendChild(x);x.select();try{document.execCommand('copy');toast('Copiado')}catch(_){toast('No se pudo copiar')}x.remove()}}
+function addExp(){modal(`<h2>Nuevo gasto</h2><label class="f">Concepto</label><input id="ec" placeholder="Ej: esmaltes, arriendo, toallas"><div class="pills" style="margin-top:8px">${['Insumos','Arriendo','Servicios públicos','Transporte','Publicidad'].map(x=>`<button class="pill" onclick="document.querySelector('#ec').value='${x}'">${x}</button>`).join('')}</div>
+ <label class="f">Valor</label><input id="ev" inputmode="numeric" placeholder="0"><label class="f">Fecha</label><input id="ed" type="date" value="${iso(today())}"><div id="eer" class="err"></div>
+ <button class="btn pri full" style="margin-top:14px" onclick="saveExp()">Guardar gasto</button>`)}
+function saveExp(){const c=$('#ec').value.trim(),v=+$('#ev').value.replace(/\D/g,'');if(!c||!v){$('#eer').textContent='Escribe el concepto y el valor.';return}EX.push({id:uid(),concept:c,amount:v,date:$('#ed').value||iso(today())});save();closeM();render()}
+
+/* ---------- Más ---------- */
+function vMas(){const l=lic&&!lic.trial;
+ return `<div class="hero"><div class="row" style="position:relative;z-index:1"><div class="av" style="background:var(--ac);width:52px;height:52px;font-size:22px">${TYPES[B.type][0]}</div><div><h2 style="margin:0;color:#fff">${esc(B.name)}</h2><div class="mut sm">${esc(B.owner)} · ${TYPES[B.type][1]} · ${actPR().length} profesional${actPR().length===1?'':'es'}</div></div></div></div>
+ <div class="card" style="padding:4px 16px">
+ ${[['vTeam()','👥','Equipo y comisiones'],['enterPro()','👤','Modo profesional'],['vLink()','🔗','Link de reservas'],['shareSlots()','📣','Compartir espacios libres'],['vWait()','⏳','Lista de espera'],['editBiz()','🏪','Mi salón y horario'],['vSvc()','💅','Servicios, precios y adicionales'],['vTpl()','💬','Mensajes de WhatsApp'],['vPin()','🔒',B.pin?'Cambiar o quitar PIN':'Proteger con PIN'],['vBackup()','💾','Copia de seguridad'],['vHelp()','❓','Cómo instalar y usar']].map(([f,i,t])=>`<div class="li" style="cursor:pointer" onclick="${f}"><span>${i} ${t}</span><span class="mut">›</span></div>`).join('')}</div>
+ <div class="card"><div class="row between"><div><b>${l?'App activada':'Prueba gratis'}</b><div class="sm mut">${l?esc(lic.name)+' · '+esc(lic.code):trialLeft()+' día'+(trialLeft()===1?'':'s')+' restantes'}</div></div>${l?'<span class="chip st-done">Activa</span>':`<button class="btn s pri" onclick="showAct=true;render()">Activar</button>`}</div></div>
+ <p class="xs mut" style="text-align:center;margin-top:16px">MiCita Salón · LV Studio · Tus datos se guardan solo en este celular.</p>`}
+function vTeam(){modal(`<div class="row between"><h2 style="margin:0">Equipo</h2><button class="btn s pri" onclick="editPro()">+ Agregar</button></div>
+ <p class="sm mut" style="margin:6px 0 10px">Cada cita se asigna a un profesional. La comisión es el porcentaje de sus ventas que le pagas (0% si es el dueño o tiene sueldo fijo). Las propinas son 100% suyas.</p>
+ <div class="card">${PR.length?PR.map(p=>`<div class="li" style="cursor:pointer;${p.on===false?'opacity:.5':''}" onclick="editPro('${p.id}')"><div class="row"><span class="av" style="background:${p.color};width:36px;height:36px;font-size:13px">${esc(initials(p.name))}</span><div><b>${esc(p.name)}</b><div class="xs mut">${p.on===false?'Inactivo · ':''}Comisión ${p.comm||0}%${p.phone?' · '+esc(p.phone):''}</div></div></div><span class="row" style="gap:6px"><button class="btn s wa nw" onclick="event.stopPropagation();sendProAgenda('${p.id}')">📲 Agenda</button><span class="mut">›</span></span></div>`).join(''):'<div class="empty">Aún no hay profesionales.</div>'}</div>
+ <button class="btn full" onclick="enterPro()">👤 Modo profesional en este celular</button>`)}
+function editPro(id){const p=id?pro(id):{name:'',phone:'',comm:40,color:COLORS[PR.length%COLORS.length],on:true};
+ modal(`<h2>${id?'Editar':'Nuevo'} profesional</h2><label class="f">Nombre</label><input id="pn2" value="${esc(p.name)}" placeholder="Ej: Valentina"><label class="f">Celular (para enviarle su liquidación)</label><input id="pp2" inputmode="tel" value="${esc(p.phone||'')}">
+ <label class="f">Comisión sobre sus ventas (%)</label><div class="pills" id="pcm">${[0,30,40,50,60].map(v=>`<button class="pill ${+p.comm===v?'on':''}" onclick="document.querySelector('#pc2').value=${v};document.querySelectorAll('#pcm .pill').forEach(x=>x.classList.remove('on'));this.classList.add('on')">${v}%</button>`).join('')}</div><input id="pc2" inputmode="numeric" value="${p.comm||0}" style="margin-top:8px">
+ <label class="f">Color</label><div class="pills" id="pcs">${COLORS.map(c=>`<button class="pill ${c===p.color?'on':''}" data-c="${c}" style="width:34px;height:34px;padding:0;background:${c};border-width:3px;border-color:${c===p.color?'var(--ink)':'transparent'}" onclick="document.querySelectorAll('#pcs .pill').forEach(x=>{x.classList.remove('on');x.style.borderColor='transparent'});this.classList.add('on');this.style.borderColor='var(--ink)'"></button>`).join('')}</div>
+ ${id?`<label class="f">Estado</label><div class="pills"><button class="pill ${p.on!==false?'on':''}" onclick="pro('${id}').on=true;save();editPro('${id}')">Activo</button><button class="pill ${p.on===false?'on':''}" onclick="pro('${id}').on=false;save();editPro('${id}')">Inactivo</button></div><div class="xs mut" style="margin-top:4px">Inactivo: no aparece para nuevas citas pero conserva su historial.</div>`:''}
+ <label class="f">PIN para el modo profesional (opcional)</label><input id="ppin" inputmode="numeric" maxlength="4" value="${esc(p.pin||'')}" placeholder="4 números"><div class="xs mut" style="margin-top:4px">Con este PIN entra a ver solo su agenda y sus comisiones en el celular o tablet del salón.</div>
+ <div id="per2" class="err"></div><button class="btn pri full" style="margin-top:16px" onclick="savePro('${id||''}')">Guardar</button><button class="btn ghost full" style="margin-top:8px" onclick="vTeam()">Volver</button>`)}
+function savePro(id){const n=$('#pn2').value.trim();if(!n){$('#per2').textContent='Escribe el nombre.';return}const o={name:n,phone:$('#pp2').value.trim(),comm:Math.min(100,+$('#pc2').value.replace(/\D/g,'')||0),color:($('#pcs .pill.on')||{dataset:{c:COLORS[0]}}).dataset.c,pin:$('#ppin').value.replace(/\D/g,'').slice(0,4)};if(o.pin&&o.pin.length!==4){$('#per2').textContent='El PIN debe tener 4 números.';return}
+ if(id)Object.assign(pro(id),o);else PR.push({id:'p'+uid(),on:true,...o});save();render();vTeam()}
+function editBiz(){const dn=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+ modal(`<h2>Mi negocio</h2><label class="f">Nombre del negocio</label><input id="bn" value="${esc(B.name)}"><label class="f">Tu nombre</label><input id="bo" value="${esc(B.owner)}">
+ <label class="f">WhatsApp del negocio</label><input id="bw" inputmode="tel" value="${esc(B.wa||'')}" placeholder="300 123 4567"><div class="xs mut" style="margin-top:4px">Aquí te llegan los pedidos del link de reservas.</div>
+ <label class="f">Dirección o barrio (opcional)</label><input id="ba" value="${esc(B.addr||'')}" placeholder="Ej: Barrio El Prado, Palmira">
+ <label class="f">Tipo</label><select id="bt">${Object.entries(TYPES).map(([k,v])=>`<option value="${k}" ${k===B.type?'selected':''}>${v[0]} ${v[1]}</option>`).join('')}</select>
+ <div class="row"><div class="grow"><label class="f">Abre</label><input type="time" id="bop" value="${B.open}"></div><div class="grow"><label class="f">Cierra</label><input type="time" id="bcl" value="${B.close}"></div></div>
+ <label class="f">Días que trabajas</label><div class="pills" id="bds">${[1,2,3,4,5,6,0].map(i=>`<button class="pill ${B.days.includes(i)?'on':''}" data-d="${i}" onclick="this.classList.toggle('on')">${dn[i]}</button>`).join('')}</div>
+ <label class="f">Política de abono (opcional)</label><input id="bpo" value="${esc(B.policy||'')}" placeholder="Ej: Se separa con abono de $10.000 por Nequi">
+ <button class="btn pri full" style="margin-top:16px" onclick="saveBiz()">Guardar</button>`)}
+function saveBiz(){B.name=$('#bn').value.trim()||B.name;B.owner=$('#bo').value.trim()||B.owner;B.wa=$('#bw').value.trim();B.addr=$('#ba').value.trim();B.policy=$('#bpo').value.trim();B.type=$('#bt').value;B.open=$('#bop').value||B.open;B.close=$('#bcl').value||B.close;B.days=[...document.querySelectorAll('#bds .pill.on')].map(p=>+p.dataset.d);save();closeM();render();toast('Guardado')}
+function vSvc(){const ad=B.addons||[];modal(`<div class="row between"><h2 style="margin:0">Servicios</h2><button class="btn s pri" onclick="editSvc()">+ Nuevo</button></div>
+ <button class="btn full" style="margin-top:10px" onclick="vPrices()">💲 Editar todos los precios rápido</button>
+ <div class="card" style="margin-top:12px">${SV.map(s=>`<div class="li" style="cursor:pointer" onclick="editSvc('${s.id}')"><div class="row"><span style="width:10px;height:10px;border-radius:50%;background:${s.color};flex:none"></span><div><b>${esc(s.name)}</b><div class="xs mut">${s.dur} min${s.every?' · cada '+s.every+' días':''}${s.dep?' · abono '+money(s.dep):''}</div></div></div><b>${money(s.price)}</b></div>`).join('')||'<div class="empty">Sin servicios</div>'}</div>
+ <div class="row between" style="margin-top:6px"><h2 style="margin:0">Adicionales</h2><button class="btn s pri" onclick="editAdd()">+ Nuevo</button></div><p class="xs mut" style="margin:4px 0 8px">Extras que se suman al servicio: diseño, lavado, decoración…</p>
+ <div class="card">${ad.map(x=>`<div class="li" style="cursor:pointer" onclick="editAdd('${x.id}')"><div><b>${esc(x.name)}</b><div class="xs mut">${x.min?'+'+x.min+' min':'sin tiempo extra'}</div></div><b>+${money(x.price)}</b></div>`).join('')||'<div class="empty">Sin adicionales</div>'}</div>`)}
+function editAdd(id){const x=id?addOf(id):{name:'',price:'',min:0};
+ modal(`<h2>${id?'Editar':'Nuevo'} adicional</h2><label class="f">Nombre</label><input id="xn" value="${esc(x.name)}" placeholder="Ej: Diseño o línea"><div class="row"><div class="grow"><label class="f">Precio extra</label><input id="xp" inputmode="numeric" value="${x.price}"></div><div class="grow"><label class="f">Minutos extra</label><input id="xm" inputmode="numeric" value="${x.min||0}"></div></div><div id="xer" class="err"></div>
+ <button class="btn pri full" style="margin-top:16px" onclick="saveAdd('${id||''}')">Guardar</button>${id?`<button class="btn bad full" style="margin-top:8px" onclick="B.addons=B.addons.filter(y=>y.id!=='${id}');save();vSvc()">Eliminar adicional</button>`:''}`)}
+function saveAdd(id){const n=$('#xn').value.trim();if(!n){$('#xer').textContent='Escribe el nombre.';return}const o={name:n,price:+$('#xp').value.replace(/\D/g,'')||0,min:+$('#xm').value.replace(/\D/g,'')||0};B.addons=B.addons||[];
+ if(id)Object.assign(addOf(id),o);else B.addons.push({id:'x'+uid(),...o});save();vSvc()}
+function vPrices(first){const ad=B.addons||[];
+ modal(`<h2>${first?'Pon tus precios 💲':'Precios rápidos'}</h2><p class="sm mut">${first?'Cargué servicios típicos de '+TYPES[B.type][1].toLowerCase()+'. Cambia los precios por los tuyos. ':''}El abono es lo que pides para separar la cita (déjalo en 0 si no pides).</p>
+ <div class="card" style="margin-top:12px;padding:10px 12px"><div class="prow xs mut"><span>Servicio</span><span>Precio</span><span>Abono</span></div>
+ ${SV.map(s=>`<div class="prow"><span class="sm"><b>${esc(s.name)}</b></span><input data-s="${s.id}" data-k="price" inputmode="numeric" value="${s.price}"><input data-s="${s.id}" data-k="dep" inputmode="numeric" value="${s.dep||0}"></div>`).join('')}</div>
+ ${ad.length?`<div class="card" style="padding:10px 12px"><div class="prow2 xs mut"><span>Adicional</span><span>Precio extra</span></div>${ad.map(x=>`<div class="prow2"><span class="sm"><b>${esc(x.name)}</b></span><input data-x="${x.id}" inputmode="numeric" value="${x.price}"></div>`).join('')}</div>`:''}
+ <div class="row"><button class="btn grow" onclick="const p=prompt('¿Qué porcentaje de abono para todos? (ej: 30)','30');if(p===null)return;const k=(+p||0)/100;document.querySelectorAll('[data-k=dep]').forEach(i=>{const pr=+document.querySelector('[data-s=\\''+i.dataset.s+'\\'][data-k=price]').value.replace(/\\D/g,'')||0;i.value=Math.round(pr*k/1000)*1000})">Abono % a todos</button></div>
+ <button class="btn pri full" style="margin-top:12px" onclick="savePrices(${first?1:0})">Guardar precios</button>${first?'':`<button class="btn ghost full" style="margin-top:8px" onclick="vSvc()">Volver</button>`}`)}
+function savePrices(first){document.querySelectorAll('[data-s]').forEach(i=>{const s=svc(i.dataset.s);if(s.id)s[i.dataset.k]=+i.value.replace(/\D/g,'')||0});document.querySelectorAll('[data-x]').forEach(i=>{const x=addOf(i.dataset.x);if(x)x.price=+i.value.replace(/\D/g,'')||0});save();render();
+ if(first)modal(`<div style="text-align:center"><div style="font-size:42px">👥</div><h2>Ahora tu equipo</h2><p class="mut">Ya estás tú como profesional. Agrega a las personas que atienden en tu salón y su porcentaje de comisión.</p><button class="btn pri full" style="margin-top:14px" onclick="editPro()">Agregar profesional</button><button class="btn ghost full" style="margin-top:8px" onclick="closeM()">Lo hago después</button></div>`);else{toast('Precios guardados');vSvc()}}
+function editSvc(id){const s=id?svc(id):{name:'',price:'',dur:60,every:0,dep:0,color:COLORS[SV.length%COLORS.length]};
+ modal(`<h2>${id?'Editar':'Nuevo'} servicio</h2><label class="f">Nombre</label><input id="sn" value="${esc(s.name)}"><div class="row"><div class="grow"><label class="f">Precio</label><input id="sp" inputmode="numeric" value="${s.price}"></div><div class="grow"><label class="f">Duración (min)</label><input id="sd" inputmode="numeric" value="${s.dur}"></div></div>
+ <div class="row"><div class="grow"><label class="f">Abono para separar</label><input id="sdp" inputmode="numeric" value="${s.dep||0}"></div><div class="grow"><label class="f">Vuelve cada (días)</label><input id="se" inputmode="numeric" value="${s.every||0}"></div></div><div class="xs mut" style="margin-top:4px">Abono 0 = no pides. Vuelve cada 0 = no aplica. Ej: retoque cada 21 días.</div>
+ <label class="f">Color</label><div class="pills" id="scs">${COLORS.map(c=>`<button class="pill ${c===s.color?'on':''}" data-c="${c}" style="width:34px;height:34px;padding:0;background:${c};border-width:3px;border-color:${c===s.color?'var(--ink)':'transparent'}" onclick="document.querySelectorAll('#scs .pill').forEach(p=>{p.classList.remove('on');p.style.borderColor='transparent'});this.classList.add('on');this.style.borderColor='var(--ink)'"></button>`).join('')}</div><div id="ser" class="err"></div>
+ <button class="btn pri full" style="margin-top:16px" onclick="saveSvc('${id||''}')">Guardar</button>${id?`<button class="btn bad full" style="margin-top:8px" onclick="SV=SV.filter(x=>x.id!=='${id}');save();vSvc()">Eliminar servicio</button>`:''}`)}
+function saveSvc(id){const n=$('#sn').value.trim();if(!n){$('#ser').textContent='Escribe el nombre.';return}const o={name:n,price:+$('#sp').value.replace(/\D/g,'')||0,dur:+$('#sd').value.replace(/\D/g,'')||30,dep:+$('#sdp').value.replace(/\D/g,'')||0,every:+$('#se').value.replace(/\D/g,'')||0,color:($('#scs .pill.on')||{dataset:{c:COLORS[0]}}).dataset.c};
+ if(id)Object.assign(svc(id),o);else SV.push({id:uid(),...o});save();vSvc()}
+function vTpl(){modal(`<h2>Mensajes de WhatsApp</h2><p class="sm mut">Puedes usar {cliente}, {servicio}, {dia}, {hora} y {negocio}. Se reemplazan solos.</p>
+ ${Object.keys(TPL).map(k=>`<label class="f">${TPLN[k]}</label><textarea id="t_${k}">${esc(B.tpl[k]||TPL[k])}</textarea>`).join('')}
+ <button class="btn pri full" style="margin-top:14px" onclick="Object.keys(TPL).forEach(k=>B.tpl[k]=document.querySelector('#t_'+k).value.trim()||TPL[k]);save();closeM();toast('Mensajes guardados')">Guardar</button><button class="btn ghost full" style="margin-top:8px" onclick="B.tpl={...TPL};save();vTpl()">Restaurar los originales</button>`)}
+function vPin(){modal(`<h2>${B.pin?'PIN de la app':'Proteger con PIN'}</h2><p class="sm mut">Pide un PIN de 4 números cada vez que abres la app. Útil si prestas el celular.</p><label class="f">Nuevo PIN</label><input id="pn" inputmode="numeric" maxlength="4" placeholder="4 números"><div id="per" class="err"></div>
+ <button class="btn pri full" style="margin-top:14px" onclick="const v=document.querySelector('#pn').value;if(!/^\\d{4}$/.test(v)){document.querySelector('#per').textContent='Deben ser 4 números.';return}B.pin=v;unlocked=true;save();closeM();toast('PIN guardado')">Guardar PIN</button>${B.pin?`<button class="btn ghost full" style="margin-top:8px" onclick="B.pin='';save();closeM();toast('PIN quitado')">Quitar PIN</button>`:''}`)}
+function backupStr(){return btoa(unescape(encodeURIComponent(JSON.stringify({B,SV,CL,AP,EX,WL,PR,lic,v:3}))))}
+function vBackup(){modal(`<h2>Copia de seguridad</h2><p class="sm mut">Tus datos viven solo en este celular. Descarga una copia cada semana y guárdala en Drive o envíatela por WhatsApp. Si cambias de celular, la restauras aquí.</p>
+ <p class="xs mut" style="margin-top:6px">Las fotos de trabajos no van en la copia: guárdalas también en tu galería.</p>
+ <button class="btn pri full" style="margin-top:12px" onclick="dlBackup()">Descargar copia</button>
+ <label class="f" style="margin-top:18px">Restaurar desde archivo</label><input type="file" accept=".txt,.json" onchange="readBk(this)"><div id="bkm" class="err"></div>`)}
+function dlBackup(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([backupStr()],{type:'text/plain'}));a.download='micitasalon-respaldo-'+iso(today())+'.txt';document.body.appendChild(a);a.click();a.remove();B.lastBk=iso(today());save();toast('Copia descargada')}
+function readBk(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(decodeURIComponent(escape(atob(r.result.trim()))));if(!d.B)throw 0;({B,SV,CL,AP}=d);EX=d.EX||[];WL=d.WL||[];PR=d.PR||[];if(d.lic&&!(lic&&!lic.trial)){lic=d.lic;store.set('lic',lic)}save();closeM();render();toast('Datos restaurados')}catch(e){$('#bkm').textContent='Ese archivo no es una copia válida de MiCita Salón.'}};r.readAsText(f)}
+function vHelp(){modal(`<h2>Cómo usar MiCita Salón</h2>
+ <p><b>Instalarla como app</b><br><span class="sm mut">iPhone: en Safari toca Compartir → Agregar a inicio. Android: en Chrome toca ⋮ → Instalar app o Agregar a pantalla principal.</span></p><br>
+ <p><b>Agendar</b><br><span class="sm mut">Toca el botón + o un espacio libre en la Agenda. Si el cliente es nuevo, escribe su nombre y celular y se guarda solo. Si te dio abono, regístralo ahí mismo.</span></p><br>
+ <p><b>Link de reservas</b><br><span class="sm mut">En Más → Link de reservas copias tu link y lo pones en tu Instagram o WhatsApp. El cliente elige servicio, día y hora, y te llega el pedido por WhatsApp. Cópialo, toca Pegar pedido y la cita queda armada.</span></p><br>
+ <p><b>Recordatorios y clientes que vuelven</b><br><span class="sm mut">En Hoy verás las citas de mañana para recordar y a quién ya le toca volver según la frecuencia de su servicio.</span></p><br>
+ <p><b>Cobrar y cerrar caja</b><br><span class="sm mut">Al terminar toca Atendida, escribe cuánto pagó, el medio y la propina. En Caja ves tu ganancia y el cierre del día para compartir.</span></p><br>
+ <p><b>Tus datos</b><br><span class="sm mut">Todo se guarda en tu celular y funciona sin internet. Haz una copia de seguridad cada semana.</span></p>
+ ${SOPORTE?`<a class="btn wa full" style="margin-top:14px" href="https://wa.me/${SOPORTE}" target="_blank">Soporte por WhatsApp</a>`:''}`)}
+/* ---------- Bienvenida ---------- */
+function vWelcome(){if(ob.step===0)return `<div style="text-align:center;padding:36px 4px 10px"><div class="logo"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M9 15.5l2 2 4-4"/></svg></div>
+ <h1 style="font-size:36px">Mi<span style="color:var(--ac)">Cita</span> <span style="font-size:.55em;color:var(--gold)">Salón</span></h1><p class="mut" style="margin:8px auto 26px;max-width:30ch">La agenda de tu salón: citas por profesional, comisiones, clientes, recordatorios por WhatsApp y tu caja.</p></div>
+ <div class="card"><b>¿Qué tipo de salón tienes?</b><div class="pills" style="margin-top:10px">${Object.entries(TYPES).map(([k,v])=>`<button class="pill ${ob.type===k?'on':''}" onclick="ob.type='${k}';render()">${v[0]} ${v[1]}</button>`).join('')}</div>
+ <label class="f">Nombre del salón</label><input id="obn" value="${esc(ob.name)}" placeholder="Ej: Studio Bella" oninput="ob.name=this.value">
+ <label class="f">Tu nombre</label><input id="obo" value="${esc(ob.owner)}" placeholder="Ej: Carolina" oninput="ob.owner=this.value"><div id="oer" class="err"></div>
+ <button class="btn pri full" style="margin-top:16px" onclick="startApp()">Empezar · 7 días gratis</button></div>
+ <button class="btn ghost full" onclick="startDemo()">Ver con datos de ejemplo</button>
+ <p class="xs mut" style="text-align:center;margin-top:16px">Tus datos se guardan solo en este celular. Funciona sin internet.</p>`}
+function baseBiz(name,owner,type){return{name,owner,type,open:'08:00',close:'19:00',days:[1,2,3,4,5,6],tpl:{...TPL},pin:'',start:iso(today()),addons:mkAdd(type)}}
+function startApp(){const n=ob.name.trim(),o=ob.owner.trim();if(!n||!o){$('#oer').textContent='Escribe el nombre del salón y tu nombre.';return}
+ B=baseBiz(n,o,ob.type);SV=mkSvc(ob.type);CL=[];AP=[];EX=[];WL=[];PR=[{id:'p'+uid(),name:o,phone:'',comm:0,color:COLORS[0],on:true}];
+ if(!lic){lic={trial:1,date:iso(today())};store.set('lic',lic)}save();unlocked=true;tab='hoy';render();vPrices(true)}
+function startDemo0(){const t=iso(today());B=baseBiz('Nails by Caro','Carolina','unas');B.demo=1;B.wa='3001234567';B.policy='Se separa con abono de $10.000 por Nequi';B.addr='Barrio El Prado';
+ SV=mkSvc('unas','s');SV[3].dep=20000;SV[4].dep=15000;if(SV[5])SV[5].dep=20000;
+ const names=[['Laura Gómez','3001234567','Le gusta el diseño francés'],['Valentina Ríos','3112223344',''],['Daniela Ortiz','3205556677','Alérgica al acrílico: solo semipermanente'],['Camila Torres','3157778899',''],['Juliana Pérez','3014445566','Siempre llega 10 min antes'],['Mariana López','3189990011',''],['Sofía Herrera','3046667788',''],['Paula Castro','3123334455','Prefiere tonos nude'],['Andrea Mejía','3171112233',''],['Natalia Rojas','3009998877','']];
+ CL=names.map((n,i)=>({id:'c'+i,name:n[0],phone:n[1],notes:n[2],bday:i===3?addD(t,2).slice(5):i===7?'03-14':'',created:addD(t,-60)}));
+ AP=[];let sd=11;const R=()=>{sd|=0;sd=sd+0x6D2B79F5|0;let x=Math.imul(sd^sd>>>15,1|sd);x=x+Math.imul(x^x>>>7,61|x)^x;return((x^x>>>14)>>>0)/4294967296};const times=['08:30','09:30','10:30','11:30','14:00','15:00','16:30','17:30'];
+ for(let d=-42;d<=6;d++){const day=addD(t,d),wd=parse(day).getDay();if(wd===0)continue;const n=d<0?2+Math.floor(R()*3):d===0?5:d===1?3:Math.floor(R()*3);const used=new Set(),usedC=new Set();
+  for(let k=0;k<n;k++){let ti,ci;do{ti=times[Math.floor(R()*times.length)]}while(used.has(ti));used.add(ti);do{ci=d<-36?9:Math.floor(R()*8)}while(usedC.has(ci)&&d>=-36);usedC.add(ci);const si=Math.floor(R()*5),s=SV[si];
+   let st=d<0?(R()<.06||(ci===6&&d>-20&&R()<.5)?'noshow':'done'):'pend';if(d>=1&&R()<.4)st='conf';
+   const dep=s.price>=60000&&R()<.5?{amount:20000,method:'Nequi',date:addD(day,-2)}:null;
+   AP.push({id:uid()+k+'_'+d,cid:'c'+ci,sid:s.id,date:day,time:ti,dur:s.dur,price:s.price,note:'',status:st,dep,paid:st==='done'?{amount:s.price-(dep?dep.amount:0),method:METHODS[Math.floor(R()*3)],tip:R()<.2?5000:0}:null,rem:d===1&&k===0?1:0})}}
+ const td=AP.filter(a=>a.date===t).sort((a,b)=>toMin(a.time)-toMin(b.time));const nowM=new Date().getHours()*60+new Date().getMinutes();td.forEach((a,i)=>{if(toMin(a.time)+a.dur<=nowM||i<2&&nowM>toMin(a.time)){a.status='done';a.paid={amount:a.price-depOf(a),method:'Nequi',tip:0}}});
+ EX=[{id:'e1',concept:'Insumos',amount:180000,date:t.slice(0,8)+'02'},{id:'e2',concept:'Arriendo',amount:350000,date:t.slice(0,8)+'01'}].filter(e=>e.date<=t);
+ WL=[{id:'w1',cid:'c8',sid:'s2',date:'',created:t}];
+ if(!lic){lic={trial:1,date:t};store.set('lic',lic)}save();unlocked=true;tab='hoy';render()}
+
+/* ---------- Lista de espera ---------- */
+function vWait(){const t=iso(today());WL=WL.filter(w=>!w.date||w.date>=t);save();
+ modal(`<div class="row between"><h2 style="margin:0">Lista de espera</h2><button class="btn s pri" onclick="addWait()">+ Agregar</button></div>
+ <p class="sm mut" style="margin:6px 0 10px">Clientes que quieren cita apenas se libere un espacio. Cuando canceles una cita, MiCita te los muestra para avisarles.</p>
+ <div class="card">${WL.length?WL.map(w=>{const c=cli(w.cid);return `<div class="li"><div><b>${esc(c.name)}</b><div class="xs mut">${esc(w.sid?svc(w.sid).name:'Cualquier servicio')} · ${w.date?dShort(w.date):'cualquier día'}</div></div><div class="row" style="gap:6px">${c.phone?`<a class="btn s wa" href="https://wa.me/${phoneWA(c.phone)}" target="_blank">💬</a>`:''}<button class="btn s" onclick="closeM();newAppt(${w.date?`'${w.date}'`:'null'},null,'${w.cid}','${w.sid}');draft.wlId='${w.id}'">Agendar</button><button class="btn s ghost" onclick="WL=WL.filter(x=>x.id!=='${w.id}');save();vWait();render()">✕</button></div></div>`}).join(''):'<div class="empty">Nadie en espera.</div>'}</div>`)}
+function addWait(){const opts=CL.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('');
+ modal(`<h2>Agregar a lista de espera</h2><label class="f">Cliente</label><select id="wc" onchange="document.querySelector('#wnew').style.display=this.value?'none':'flex'"><option value="">+ Cliente nuevo</option>${opts}</select>
+ <div class="row" id="wnew" style="margin-top:8px"><input id="wn" placeholder="Nombre"><input id="wp" placeholder="Celular" inputmode="tel"></div>
+ <label class="f">Servicio</label><select id="ws"><option value="">Cualquiera</option>${SV.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('')}</select>
+ <label class="f">Día que prefiere (opcional)</label><input type="date" id="wd" min="${iso(today())}"><div id="wer" class="err"></div>
+ <button class="btn pri full" style="margin-top:14px" onclick="saveWait()">Guardar</button>`)}
+function saveWait(){let cid=$('#wc').value;if(!cid){const n=$('#wn').value.trim();if(!n){$('#wer').textContent='Elige un cliente o escribe el nombre.';return}const ex=CL.find(c=>normN(c.name)===normN(n));if(ex)cid=ex.id;else{const c={id:uid(),name:n,phone:$('#wp').value.trim(),notes:'',bday:'',created:iso(today())};CL.push(c);cid=c.id}}
+ WL.push({id:uid(),cid,sid:$('#ws').value,date:$('#wd').value,created:iso(today())});save();render();vWait()}
+function waWait(wid,date,time){const w=WL.find(x=>x.id===wid);if(!w)return;const c=cli(w.cid);const p=phoneWA(c.phone);if(!p){toast('Este cliente no tiene celular guardado');return}
+ window.open('https://wa.me/'+p+'?text='+encodeURIComponent(fill('espera',null,c,{date,time})),'_blank')}
+function fromWait(wid,date,time){const w=WL.find(x=>x.id===wid);if(!w)return;closeM();newAppt(date,time,w.cid,w.sid||null);draft.wlId=wid}
+
+/* ---------- Compartir espacios y link de reservas ---------- */
+const WD=['dom','lun','mar','mié','jue','vie','sáb'];
+function slotsText(days){const t=iso(today());let lines=[];for(let i=0;i<days;i++){const d=addD(t,i);const f=freeSlots(d).filter(([a,b])=>b-a>=30);if(!f.length)continue;const dt=parse(d);lines.push(`• ${cap(WD[dt.getDay()])} ${dt.getDate()}: ${f.map(([a,b])=>h12(fromMin(a)).replace(':00','')+' a '+h12(fromMin(b)).replace(':00','')).join(', ')}`)}return lines}
+function shareSlots(){const l=slotsText(7);const link=B.wa?bookingURL():'';
+ const txt=l.length?`✨ Espacios disponibles en ${B.name} esta semana:\n\n${l.join('\n')}\n\n${link?'Agenda aquí: '+link:'Escríbeme para separar el tuyo 💬'}`:`Esta semana tengo la agenda llena 🙌 Escríbeme para separarte un espacio la próxima.`;window._st=txt;
+ modal(`<h2>Compartir espacios libres</h2><p class="sm mut">Publícalo en tu estado de WhatsApp o en historias. Se arma solo con tus espacios de los próximos 7 días.</p>
+ <pre style="white-space:pre-wrap;font-family:inherit;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px;font-size:14px">${esc(txt)}</pre>
+ ${B.wa?'':`<p class="xs mut">💡 Agrega el WhatsApp de tu negocio en Mi negocio para incluir tu link de reservas.</p>`}
+ <div class="row" style="margin-top:12px"><button class="btn grow" onclick="copyTxt(window._st)">Copiar</button><button class="btn wa grow" onclick="window.open('https://wa.me/?text='+encodeURIComponent(window._st),'_blank')">WhatsApp</button></div>
+ ${navigator.share?`<button class="btn ghost full" style="margin-top:8px" onclick="navigator.share({text:window._st}).catch(()=>{})">Compartir en otra app</button>`:''}`)}
+const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64d=s=>decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/'))));
+function bookingURL(){const t=iso(today()),fr=[],ps=actPR();for(let i=0;i<14;i++){const d=addD(t,i);if(ps.length>1)ps.forEach((p,k)=>{const f=freeOne(d,p.id);if(f.length)fr.push([i,f,k])});else{const f=freeSlots(d);if(f.length)fr.push([i,f,0])}}
+ const data={n:B.name,y:B.type,w:phoneWA(B.wa),a:B.addr||'',p:B.policy||'',g:t,s:SV.map(s=>[s.name,s.price,s.dur,s.dep||0]),x:(B.addons||[]).map(x=>[x.name,x.price,x.min||0]),r:ps.length>1?ps.map(p=>p.name.split(' ')[0]):[],f:fr};return APP_URL+'#r='+b64e(JSON.stringify(data))}
+function vLink(){if(!B.wa){modal(`<h2>Link de reservas</h2><p class="mut">Tus clientes eligen servicio, día y hora desde un link, y el pedido te llega por WhatsApp. Sin mensualidades.</p><label class="f">WhatsApp de tu negocio</label><input id="lw" inputmode="tel" placeholder="300 123 4567"><div id="lwe" class="err"></div><button class="btn pri full" style="margin-top:14px" onclick="const v=document.querySelector('#lw').value.trim();if(phoneWA(v).length<10){document.querySelector('#lwe').textContent='Escribe un celular válido.';return}B.wa=v;save();vLink()">Crear mi link</button>`);return}
+ const u=bookingURL();window._lu=u;
+ modal(`<h2>Tu link de reservas 🔗</h2><p class="sm mut">Ponlo en tu bio de Instagram, en tu estado o envíalo a tus clientes. Muestra tus servicios y los espacios libres de las próximas 2 semanas.</p>
+ <div class="banner" style="background:var(--confb);margin-top:10px">El link guarda tus espacios de hoy. <b>Vuelve a copiarlo cada semana</b> o cuando cambie tu agenda, para que siempre esté al día.</div>
+ <div class="row" style="margin-top:6px"><button class="btn pri grow" onclick="copyTxt(window._lu)">Copiar link</button><button class="btn grow" onclick="window.open(window._lu,'_blank')">Ver cómo se ve</button></div>
+ ${navigator.share?`<button class="btn ghost full" style="margin-top:8px" onclick="navigator.share({title:B.name,text:'Agenda tu cita en '+B.name,url:window._lu}).catch(()=>{})">Compartir</button>`:''}
+ <div class="card" style="margin-top:14px"><b>¿Cómo llega el pedido?</b><p class="sm mut" style="margin-top:4px">Te escriben por WhatsApp con el servicio, el día y la hora. Copia ese mensaje, toca <b>📥 Pegar pedido</b> en Hoy y la cita queda armada para aceptarla con un toque.</p></div>`)}
+function getBooking(){const h=location.hash;if(!h.startsWith('#r='))return null;try{return JSON.parse(b64d(h.slice(3)))}catch(e){return {err:1}}}
+let bk={s:-1,d:null,t:null};
+function vBook(D){if(D.err)return `<div class="empty" style="padding-top:80px">Este link de reservas no es válido. Pídele uno nuevo al salón.</div>`;
+ const t=iso(today()),X=D.x||[],RP=D.r||[];bk.x=bk.x||[];if(bk.p==null)bk.p=-1;
+ const s=bk.s>=0?D.s[bk.s]:null;
+ const xs=bk.x.map(i=>X[i]).filter(Boolean),total=s?s[1]+xs.reduce((a,x)=>a+x[1],0):0,dur=s?s[2]+xs.reduce((a,x)=>a+(x[2]||0),0):0,dep=s?s[3]||0:0;
+ const now=new Date(),nm=now.getHours()*60+now.getMinutes();
+ const byDay={};D.f.forEach(([i,f,k])=>{if(bk.p>=0&&k!==bk.p)return;const d=addD(D.g,i);if(d<t)return;(byDay[d]=byDay[d]||[]).push(...f)});
+ const days=Object.keys(byDay).sort().map(d=>[d,mergeR(byDay[d])]);
+ const starts=(f,du,d)=>{const o=[];f.forEach(([a,b])=>{for(let m=Math.ceil(a/30)*30;m+du<=b;m+=30)if(d!==t||m>nm+30)o.push(m)});return o};
+ const okDays=s?days.filter(([d,f])=>starts(f,dur,d).length):[];
+ const sel=okDays.find(([d])=>d===bk.d);let n=1;
+ return `<div style="text-align:center;padding:18px 0 6px"><div class="logo" style="font-size:30px">${(TYPES[D.y]||TYPES.otro)[0]}</div><h1>${esc(D.n)}</h1>${D.a?`<p class="sm mut">📍 ${esc(D.a)}</p>`:''}<p class="mut" style="margin-top:4px">Agenda tu cita en pocos pasos</p></div>
+ <div class="card"><h2>${n++}. Elige el servicio</h2>${D.s.map((x,i)=>`<div class="li" style="cursor:pointer" onclick="bk.s=${i};bk.d=null;bk.t=null;render()"><div><b>${bk.s===i?'✅ ':''}${esc(x[0])}</b><div class="xs mut">${x[2]} min${x[3]?' · abono '+money(x[3]):''}</div></div><b>${money(x[1])}</b></div>`).join('')}</div>
+ ${s&&X.length?`<div class="card"><h2>${n++}. ¿Algo adicional?</h2><p class="xs mut" style="margin:-4px 0 8px">Opcional. Se suma al total.</p><div class="pills">${X.map((x,i)=>`<button class="pill ${bk.x.includes(i)?'on':''}" onclick="bk.x=bk.x.includes(${i})?bk.x.filter(y=>y!==${i}):[...bk.x,${i}];bk.t=null;render()">${bk.x.includes(i)?'✓ ':'+ '}${esc(x[0])} ${money(x[1])}</button>`).join('')}</div></div>`:''}
+ ${s&&RP.length?`<div class="card"><h2>${n++}. ¿Con quién?</h2><div class="pills"><button class="pill ${bk.p<0?'on':''}" onclick="bk.p=-1;bk.d=null;bk.t=null;render()">Sin preferencia</button>${RP.map((r,i)=>`<button class="pill ${bk.p===i?'on':''}" onclick="bk.p=${i};bk.d=null;bk.t=null;render()">${esc(r)}</button>`).join('')}</div></div>`:''}
+ ${s?`<div class="tot" style="margin-bottom:12px"><div><span class="xs mut">Total a pagar</span><b>${money(total)}</b></div><div style="text-align:right"><span class="xs mut">${dur} min</span>${dep?`<div class="xs" style="color:var(--ok);font-weight:600">Abono para separar: ${money(dep)}</div>`:''}</div></div>`:''}
+ ${s?`<div class="card"><h2>${n++}. Elige el día</h2>${okDays.length?`<div class="pills">${okDays.map(([d])=>{const dt=parse(d);return `<button class="pill ${bk.d===d?'on':''}" onclick="bk.d='${d}';bk.t=null;render()">${cap(WD[dt.getDay()])} ${dt.getDate()}</button>`}).join('')}</div>`:'<p class="mut">No hay espacios disponibles para este servicio en las próximas 2 semanas. Escríbele directamente al salón.</p>'}</div>`:''}
+ ${sel?`<div class="card"><h2>${n++}. Elige la hora</h2><div class="pills">${starts(sel[1],dur,sel[0]).map(m=>`<button class="pill ${bk.t===m?'on':''}" onclick="bk.t=${m};render()">${h12(fromMin(m))}</button>`).join('')}</div></div>`:''}
+ ${bk.t!=null&&sel?`<div class="card"><h2>Tus datos</h2><label class="f">Tu nombre</label><input id="bkn" placeholder="Nombre y apellido" value="${esc(store.get('bkName',''))}"><label class="f">Tu celular</label><input id="bkp" inputmode="tel" placeholder="300 123 4567" value="${esc(store.get('bkPhone',''))}"><div id="bke" class="err"></div>
+ <div class="tot" style="margin-top:12px"><div><span class="xs mut">${esc(s[0])}${xs.length?' + '+xs.map(x=>esc(x[0])).join(' + '):''}${bk.p>=0?' · con '+esc(RP[bk.p]):''}</span><b>${money(total)}</b></div>${dep?`<div style="text-align:right"><span class="xs mut">Abono para separar</span><b style="color:var(--ok)">${money(dep)}</b></div>`:''}</div>
+ ${D.p?`<div class="banner" style="margin-top:12px">💡 ${esc(D.p)}</div>`:''}
+ <button class="btn wa full" style="margin-top:12px" onclick="sendBooking()">Pedir cita por WhatsApp</button><p class="xs mut" style="text-align:center;margin-top:8px">${esc(D.n)} te confirmará la cita por WhatsApp.</p></div>`:''}
+ <p class="xs mut" style="text-align:center;margin:18px 0">Espacios actualizados al ${dShort(D.g)} · Hecho con MiCita Salón</p>`}
+function sendBooking(){const D=getBooking(),s=D.s[bk.s],X=D.x||[],RP=D.r||[],xs=(bk.x||[]).map(i=>X[i]).filter(Boolean),n=$('#bkn').value.trim(),p=$('#bkp').value.trim();if(n.length<3){$('#bke').textContent='Escribe tu nombre.';return}
+ store.set('bkName',n);store.set('bkPhone',p);const hm=fromMin(bk.t),total=s[1]+xs.reduce((a,x)=>a+x[1],0),dep=s[3]||0,who=bk.p>=0?RP[bk.p]:'';
+ const txt=`Hola ${D.n} 👋 Quiero agendar una cita:\n\n• Servicio: ${s[0]}${xs.length?'\n• Adicionales: '+xs.map(x=>x[0]).join(', '):''}${who?'\n• Con: '+who:''}\n• Total: ${money(total)}${dep?'\n• Abono para separar: '+money(dep):''}\n• Día: ${cap(dLong(bk.d))}\n• Hora: ${h12(hm)}\n• Nombre: ${n}${p?'\n• Celular: '+p:''}\n\n¿Me confirmas? 🙏\n\n[MiCita|${bk.d}|${hm}|${s[0]}|${n}|${p}|${xs.map(x=>x[0]).join(';')}|${who}]`;
+ window.open('https://wa.me/'+D.w+'?text='+encodeURIComponent(txt),'_blank')}
+function pasteOrder(){modal(`<h2>📥 Pegar pedido</h2><p class="sm mut">Copia el mensaje que te llegó por WhatsApp desde tu link de reservas y pégalo aquí.</p><textarea id="po" style="min-height:140px;margin-top:10px" placeholder="Pega aquí el mensaje completo"></textarea><div id="poe" class="err"></div>
+ <div class="row" style="margin-top:12px">${navigator.clipboard&&navigator.clipboard.readText?`<button class="btn grow" onclick="navigator.clipboard.readText().then(t=>{document.querySelector('#po').value=t;parseOrder()}).catch(()=>toast('Pega con el teclado'))">Pegar</button>`:''}<button class="btn pri grow" onclick="parseOrder()">Armar cita</button></div>`)}
+function parseOrder(){const t=$('#po').value;const m=t.match(/\[MiCita\|(\d{4}-\d{2}-\d{2})\|(\d{2}:\d{2})\|([^|]*)\|([^|]*)\|([^|\]]*)(?:\|([^|\]]*))?(?:\|([^\]]*))?\]/);
+ if(!m){$('#poe').textContent='No encontré un pedido de MiCita en ese texto. Copia el mensaje completo.';return}
+ const[,date,time,sname,name,phone,xtra,who]=m;const s=SV.find(x=>normN(x.name)===normN(sname))||SV[0];
+ const add=(xtra||'').split(';').map(nm=>(B.addons||[]).find(x=>normN(x.name)===normN(nm))).filter(Boolean).map(x=>x.id);
+ const ex=CL.find(c=>normN(c.name)===normN(name)||(phone&&phoneWA(c.phone)===phoneWA(phone)));
+ const pp=who?actPR().find(p=>normN(p.name.split(' ')[0])===normN(who)):null;
+ overlapOK=false;draft={id:null,date,time,cid:ex?ex.id:'',sid:s?s.id:'',add,price:0,dur:60,note:'Pedido por link',newName:ex?'':name,newPhone:ex?'':phone,dep:null,src:'link',pid:pp?pp.id:''};recalc();if(!draft.pid)draft.pid=autoPro(date,time,draft.dur);apForm()}
+/* ---------- Fotos ---------- */
+let _db=null;
+function photosDB(mode,fn){const go=db=>{try{const tx=db.transaction('ph',mode);fn(tx.objectStore('ph'),tx)}catch(e){}};if(_db)return go(_db);
+ try{const r=indexedDB.open('micitasalon',1);r.onupgradeneeded=()=>{const s=r.result.createObjectStore('ph',{keyPath:'id'});s.createIndex('cid','cid')};r.onsuccess=()=>{_db=r.result;go(_db)};r.onerror=()=>{}}catch(e){}}
+function drawPhotos(cid){const box=$('#phs');if(!box)return;photosDB('readonly',st=>{const r=st.index('cid').getAll(IDBKeyRange.only(cid));r.onsuccess=()=>{const b=$('#phs');if(!b)return;const l=(r.result||[]).sort((a,b)=>b.date.localeCompare(a.date));
+ b.innerHTML=l.length?l.map(p=>`<img src="${p.data}" onclick="viewPhoto('${p.id}','${cid}')" alt="Trabajo ${dShort(p.date)}">`).join(''):'<span class="xs mut">Aún no hay fotos. Guarda aquí sus diseños para repetirlos.</span>'}});setTimeout(()=>{const b=$('#phs');if(b&&b.textContent==='Cargando…')b.innerHTML='<span class="xs mut">Las fotos no están disponibles en este navegador.</span>'},1500)}
+function addPhoto(inp,cid,fromDone){const f=inp.files[0];if(!f)return;const img=new Image();const url=URL.createObjectURL(f);img.onload=()=>{const k=Math.min(1,900/Math.max(img.width,img.height));const c=document.createElement('canvas');c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(url);
+ const data=c.toDataURL('image/jpeg',.72);photosDB('readwrite',(st,tx)=>{st.put({id:uid(),cid,date:iso(today()),data});tx.oncomplete=()=>{toast('Foto guardada 📷');if(!fromDone)drawPhotos(cid)}})};img.src=url}
+function viewPhoto(id,cid){photosDB('readonly',st=>{const r=st.get(id);r.onsuccess=()=>{const p=r.result;if(!p)return;modal(`<img src="${p.data}" style="width:100%;border-radius:16px"><p class="sm mut" style="margin:8px 0">${esc(cli(cid).name)} · ${dLong(p.date)}</p>
+ <div class="row"><a class="btn grow" href="${p.data}" download="micita-${p.date}.jpg">Descargar</a><button class="btn bad grow" onclick="photosDB('readwrite',(st,tx)=>{st.delete('${id}');tx.oncomplete=()=>openCli('${cid}')})">Eliminar</button></div><button class="btn ghost full" style="margin-top:8px" onclick="openCli('${cid}')">Volver</button>`)}})}
+function clearDemo(){modal(`<h2>Empezar con tus datos</h2><p class="mut">Se borran los clientes y citas de ejemplo. Escribe los datos de tu negocio.</p>
+ <label class="f">Tipo</label><select id="cdt">${Object.entries(TYPES).map(([k,v])=>`<option value="${k}">${v[0]} ${v[1]}</option>`).join('')}</select>
+ <label class="f">Nombre del negocio</label><input id="cdn" placeholder="Ej: Nails by Caro"><label class="f">Tu nombre</label><input id="cdo"><div id="cde" class="err"></div>
+ <button class="btn pri full" style="margin-top:14px" onclick="ob.type=document.querySelector('#cdt').value;ob.name=document.querySelector('#cdn').value;ob.owner=document.querySelector('#cdo').value;if(!ob.name.trim()||!ob.owner.trim()){document.querySelector('#cde').textContent='Completa los datos.';return}closeM();startApp()">Empezar</button>`)}
+
+/* ---------- PIN y activación ---------- */
+function vLock(){const p=pinFor?pro(pinFor):null;return `<div style="text-align:center;padding-top:50px"><div class="logo">${p?esc(initials(p.name)):'🔒'}</div><h2>${p?'Hola, '+esc(p.name.split(' ')[0]):esc(B.name)}</h2><p class="mut">${p?'Escribe tu PIN de profesional':'Escribe el PIN del salón'}</p><div class="pin">${[0,1,2,3].map(i=>`<i class="${pinBuf.length>i?'f':''}"></i>`).join('')}</div><div id="perr" class="err" style="min-height:20px"></div>
+ <div class="kp">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>k===''?'<span></span>':`<button onclick="pinKey('${k}')">${k}</button>`).join('')}</div>
+ ${p?`<button class="btn ghost" style="margin-top:22px" onclick="pinFor=null;pinBuf='';render()">← Volver</button>`:actPR().some(x=>x.pin)?`<div style="margin-top:26px"><p class="sm mut" style="margin-bottom:8px">¿Eres del equipo?</p><div class="pills" style="justify-content:center">${actPR().filter(x=>x.pin).map(x=>`<button class="pill" onclick="pinFor='${x.id}';pinBuf='';render()"><span class="dot" style="background:${x.color}"></span>${esc(x.name.split(' ')[0])}</button>`).join('')}</div></div>`:''}</div>`}
+function pinKey(k){if(k==='⌫')pinBuf=pinBuf.slice(0,-1);else if(pinBuf.length<4)pinBuf+=k;
+ if(pinBuf.length===4){const want=pinFor?pro(pinFor).pin:B.pin;if(pinBuf===want){pinBuf='';if(pinFor){asPro=pinFor;store.set('asPro',asPro);pinFor=null}else unlocked=true;render();return}pinBuf='';render();$('#perr').textContent='PIN incorrecto';return}render()}
+function vActivar(){const end=lic&&lic.trial&&trialLeft()<=0;
+ return `<div style="text-align:center;padding:30px 0 10px"><div class="logo"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M9 15.5l2 2 4-4"/></svg></div><h1>Mi<span style="color:var(--ac)">Cita</span> <span style="font-size:.55em;color:var(--gold)">Salón</span></h1></div>
+ ${end?`<div class="card" style="border-left:3px solid var(--ac)"><b>Tu prueba gratis terminó.</b><p class="sm mut" style="margin-top:4px">Tus citas, clientes y caja están guardadas. Activa tu código para seguir usándola.</p></div>`:''}
+ <div class="card"><h2>Activa tu app</h2><p class="sm mut">Escribe tu nombre tal como lo diste en la compra y el código que recibiste.</p>
+ <label class="f">Nombre completo</label><input id="an" placeholder="Ej: Carolina Gómez" autocomplete="name"><label class="f">Código de activación</label><input id="acd" placeholder="MS-XXXX-XXXX" autocapitalize="characters" style="text-transform:uppercase;letter-spacing:2px">
+ <div id="aerr" class="err"></div><button class="btn pri full" style="margin-top:14px" onclick="activar()">Activar</button></div>
+ ${showAct?`<button class="btn ghost full" onclick="showAct=false;render()">Volver</button>`:`<button class="btn ghost full" onclick="dlBackup()">Descargar copia de mis datos</button>`}
+ ${SOPORTE?`<p class="sm mut" style="text-align:center;margin-top:14px">¿Necesitas tu código? <a href="https://wa.me/${SOPORTE}">Escríbenos por WhatsApp</a></p>`:''}`}
+function activar(){const n=$('#an').value.trim(),c=normC($('#acd').value);if(normN(n).length<3){$('#aerr').textContent='Escribe tu nombre completo.';return}
+ if(!c||c!==codeFor(n)){$('#aerr').textContent='El código no coincide con ese nombre. Revisa que esté escrito igual que en tu compra.';return}
+ lic={name:n,code:c,date:iso(today())};store.set('lic',lic);showAct=false;let nm=n.split(/\s+/)[0];nm=nm.charAt(0).toUpperCase()+nm.slice(1).toLowerCase();render();
+ modal(`<div style="text-align:center"><div style="font-size:46px">💖</div><h2>¡Listo, ${esc(nm)}!</h2><p class="mut">MiCita Salón quedó activada para siempre. Que tu agenda se llene y tu negocio crezca.</p><button class="btn pri full" style="margin-top:14px" onclick="closeM()">Continuar</button></div>`)}
+
+/* ---------- Diseño adaptable ---------- */
+const isWide=()=>innerWidth>=900;let wideNow=isWide();
+addEventListener('resize',()=>{const w=isWide();if(w!==wideNow){wideNow=w;if(B&&!getBooking())render()}});
+function navHTML(){return `<div class="sb-top"><div class="sb-brand"><img src="icon-192.png" alt=""><div><b>${APPNAME}</b><span>${esc(B.name)}</span></div></div><button class="btn pri full" onclick="newAppt()">+ Nueva cita</button></div>`+Object.entries(NAV).map(([k,v])=>`<button class="${tab===k?'on':''}" onclick="go('${k}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${v[1]}</svg><span>${v[0]}</span></button>`).join('')}
+function startDemo(){startDemo0();const t=iso(today());B.name='Studio Bella';B.owner='Carolina';
+ PR=[{id:'p1',name:'Carolina Gómez',phone:'3001234567',comm:0,color:'#b8517a',on:true},{id:'p2',name:'Valentina Ruiz',phone:'3112223344',comm:40,color:'#3c6fb0',on:true,pin:'1111'},{id:'p3',name:'Sofía Mejía',phone:'3205556677',comm:45,color:'#2f8f6b',on:true,pin:'2222'}];
+ let sd=5;const R=()=>{sd|=0;sd=sd+0x6D2B79F5|0;let x=Math.imul(sd^sd>>>15,1|sd);x=x+Math.imul(x^x>>>7,61|x)^x;return((x^x>>>14)>>>0)/4294967296};
+ AP.forEach(a=>{a.pid='p1'});
+ const times=['08:00','09:00','10:00','11:00','13:30','14:30','15:30','16:30','17:30'];
+ for(let d=-42;d<=6;d++){const day=addD(t,d),wd=parse(day).getDay();if(wd===0)continue;
+  ['p2','p3'].forEach(pid=>{const n=d<0?2+Math.floor(R()*3):d===0?4:d===1?3:Math.floor(R()*3);const used=new Set();let last=0;
+   for(let k=0;k<n;k++){let ti;let g=0;do{ti=times[Math.floor(R()*times.length)];g++}while((used.has(ti)||toMin(ti)<last)&&g<20);if(g>=20)break;const si=Math.floor(R()*SV.length),s=SV[si];if(toMin(ti)+s.dur>toMin(B.close))continue;used.add(ti);last=toMin(ti)+s.dur;
+    const busy=new Set(AP.filter(x=>x.date===day).map(x=>x.cid));let ci,gg=0;do{ci=Math.floor(R()*10);gg++}while(busy.has('c'+ci)&&gg<30);let st=d<0?(R()<.06?'noshow':'done'):'pend';if(d>=1&&R()<.4)st='conf';
+    AP.push({id:uid()+pid+k+'_'+d,cid:'c'+ci,sid:s.id,pid,add:[],date:day,time:ti,dur:s.dur,price:s.price,note:'',status:st,dep:null,paid:st==='done'?{amount:s.price,method:METHODS[Math.floor(R()*3)],tip:R()<.25?5000:0}:null,rem:0})}})}
+ const nowM=new Date().getHours()*60+new Date().getMinutes();AP.filter(a=>a.date===t&&a.pid!=='p1').forEach(a=>{if(toMin(a.time)+a.dur<=nowM){a.status='done';a.paid={amount:a.price,method:'Nequi',tip:0}}});
+ save();render()}
+/* ---------- Vista del profesional ---------- */
+let asPro=store.get('asPro',null),pinFor=null;
+function proData(pid){const p=pro(pid),t=iso(today()),c=(p.comm||0)/100,o=toMin(B.open),cl=toMin(B.close);
+ const ws=(()=>{const d=parse(t);d.setDate(d.getDate()-((d.getDay()+6)%7));return iso(d)})(),ms=t.slice(0,8)+'01';
+ const mine=AP.filter(a=>a.pid===pid);
+ const earn=(a,b)=>mine.filter(x=>x.date>=a&&x.date<=b).reduce((s,x)=>s+Math.round(apInc(x)*c)+apTip(x),0);
+ const days=[];for(let i=0;i<7;i++){const d=addD(t,i);const l=mine.filter(a=>a.date===d&&a.status!=='cancel').sort((a,b)=>toMin(a.time)-toMin(b.time));const busy=l.filter(a=>a.status!=='noshow').reduce((s,a)=>s+(a.dur||60),0);
+  days.push([d,B.days.includes(parse(d).getDay())?Math.min(100,Math.round(busy/(cl-o)*100)):-1,l.map(a=>[a.time,a.dur||60,cli(a.cid).name,svc(a.sid).name+addTxt(a),a.price,a.status,a.note||'',a.status==='done'?Math.round(apInc(a)*c)+apTip(a):Math.round(a.price*c)])])}
+ const up=mine.filter(a=>a.date>=t&&a.date<=addD(t,6)&&(a.status==='pend'||a.status==='conf')).reduce((s,a)=>s+Math.round(a.price*c),0);
+ return {n:B.name,pn:p.name,c:p.comm||0,col:p.color,g:t,gt:new Date().toTimeString().slice(0,5),et:earn(t,t),ew:earn(ws,t),em:earn(ms,t),up,days,mt:mine.filter(x=>x.date>=ms&&x.date<=t&&x.status==='done').length}}
+function proURL(pid){return APP_URL+'#p='+b64e(JSON.stringify(proData(pid)))}
+function getProView(){const h=location.hash;if(!h.startsWith('#p='))return null;try{return JSON.parse(b64d(h.slice(3)))}catch(e){return {err:1}}}
+function vProPanel(D,live){if(D.err)return `<div class="empty" style="padding-top:80px">Este link no es válido. Pídele uno nuevo a tu salón.</div>`;
+ const t=iso(today()),days=D.days.filter(([d])=>d>=t),td=days.find(([d])=>d===t);const nToday=td?td[2].filter(a=>a[5]!=='noshow').length:0;
+ return `<div class="hero" style="background:linear-gradient(135deg,#2b1e2f,#2b1e2f)"><div class="mut sm">${esc(D.n)} · ${live?'Modo profesional':'Tu agenda'}</div><h1 style="margin-top:2px">Hola, ${esc(D.pn.split(' ')[0])} 👋</h1><div class="mut sm" style="position:relative;z-index:1">Comisión ${D.c}% · ${D.mt} servicio${D.mt===1?'':'s'} este mes</div>
+ <div class="kpis"><div class="kpi"><b>${nToday}</b><span>citas hoy</span></div><div class="kpi"><b>${money(D.em)}</b><span>ganado este mes</span></div><div class="kpi"><b>${money(D.up)}</b><span>por ganar (7 días)</span></div></div></div>
+ <div class="card"><h2>Tus ganancias</h2><div class="li"><span>Hoy</span><b>${money(D.et)}</b></div><div class="li"><span>Esta semana</span><b>${money(D.ew)}</b></div><div class="li"><span>Este mes</span><b>${money(D.em)}</b></div><p class="xs mut" style="margin-top:6px">Comisión de servicios atendidos más tus propinas.</p></div>
+ ${days.map(([d,occ,l])=>`<div class="card"><div class="row between" style="margin-bottom:${l.length?8:0}px"><div><h2 style="margin:0;font-size:18px">${d===t?'Hoy · ':d===addD(t,1)?'Mañana · ':''}${cap(dLong(d))}</h2><div class="xs mut">${occ<0?'No trabajas este día':l.length+' cita'+(l.length===1?'':'s')+' · ocupación '+occ+'%'}</div></div>${occ>=0?`<div class="ob" style="max-width:90px"><i style="width:${occ}%;background:${D.col}"></i></div>`:''}</div>
+  ${l.map(a=>`<div class="ap ${a[5]}"><div class="t"><b>${a[0]}</b><span class="xs mut">${fromMin(toMin(a[0])+a[1])}</span></div><div class="bar" style="--c:${D.col}"></div><div class="grow"><div class="row between"><b>${esc(a[2])}</b><span class="chip st-${a[5]}">${ST[a[5]]}</span></div><div class="sm mut">${esc(a[3])} · ${money(a[4])}</div>${a[6]?`<div class="xs mut">📝 ${esc(a[6])}</div>`:''}<div class="xs" style="color:var(--ok);font-weight:600;margin-top:2px">${a[5]==='done'?'Ganaste':a[5]==='noshow'?'No vino':'Tu comisión'}${a[5]==='noshow'?'':': '+money(a[7])}</div></div></div>`).join('')}</div>`).join('')}
+ ${live?`<button class="btn dark full" onclick="exitPro()">Salir del modo profesional</button>`:`<p class="xs mut" style="text-align:center;margin:14px 0">Actualizado el ${dShort(D.g)} a las ${D.gt}. Pídele a ${esc(D.n)} un link nuevo para ver cambios.</p>`}
+ <p class="xs mut" style="text-align:center;margin:16px 0">MiCita Salón · LV Studio</p>`}
+function exitPro(){asPro=null;store.set('asPro',null);if(B.pin)unlocked=false;render()}
+function enterPro(){const ps=actPR();modal(`<h2>👤 Modo profesional</h2><p class="sm mut">Deja la tablet o el celular del salón en la vista de un profesional: verá solo su agenda, su ocupación y sus comisiones, sin la caja ni los datos de los demás.</p>
+ ${B.pin?'':`<div class="banner" style="margin-top:10px">💡 Pon un PIN del salón en Más → PIN para que nadie pueda salir de este modo sin tu permiso.</div>`}
+ <div class="card" style="margin-top:10px">${ps.map(p=>`<div class="li" style="cursor:pointer" onclick="closeM();${p.pin?`pinFor='${p.id}';unlocked=false;asPro=null;pinBuf='';render()`:`asPro='${p.id}';store.set('asPro',asPro);render()`}"><span><span class="dot" style="background:${p.color}"></span>${esc(p.name)}</span><span class="xs mut">${p.pin?'con PIN':'sin PIN'} ›</span></div>`).join('')}</div>`)}
+function sendProAgenda(pid){const p=pro(pid),u=proURL(pid),txt=`Hola ${p.name.split(' ')[0]} 👋 Aquí tienes tu agenda de los próximos 7 días y tus comisiones en ${B.name}:\n\n${u}`;window._pu=u;
+ modal(`<h2>📲 Agenda de ${esc(p.name.split(' ')[0])}</h2><p class="sm mut">Un link solo para ver: sus citas de los próximos 7 días, su ocupación y cuánto lleva ganado y por ganar. Envíaselo cada mañana o cuando cambie su agenda.</p>
+ <div class="row" style="margin-top:12px"><button class="btn wa grow" onclick="window.open('https://wa.me/${phoneWA(p.phone)}?text='+encodeURIComponent(${JSON.stringify(txt).replace(/"/g,'&quot;')}),'_blank')">Enviar por WhatsApp</button><button class="btn grow" onclick="window.open(window._pu,'_blank')">Ver</button></div>
+ ${p.phone?'':`<p class="xs mut" style="margin-top:8px">Agrega su celular en Equipo para que se abra directo su chat.</p>`}<button class="btn ghost full" style="margin-top:8px" onclick="vTeam()">Volver al equipo</button>`)}
+render();
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&B)render()});
+</script>
+</body>
+</html>
