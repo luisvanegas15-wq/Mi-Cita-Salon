@@ -152,11 +152,11 @@ nav button svg{width:21px;height:21px}
 <button id="fab" class="hide" onclick="newAppt()" aria-label="Nueva cita">+</button>
 <nav id="nav" class="hide"></nav>
 <script>
-const APPNAME='MiCita Salón',APP_URL='https://luisvanegas15-wq.github.io/Mi-Cita-Salon/',SOPORTE='',SECRET='ms26-LV-ab50e598',TRIAL=7;
+const APPNAME='MiCita Salón',APP_URL='https://luisvanegas15-wq.github.io/Mi-Cita-Salon/',SOPORTE='',SECRET='',TRIAL=7;
 function h53(str,seed=0){let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
 h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
 const normN=n=>(n||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z]/g,'');
-function codeFor(name){const v=h53(normN(name)+'|'+SECRET).toString(36).toUpperCase().padStart(11,'0').slice(-8);return 'MS-'+v.slice(0,4)+'-'+v.slice(4)}
+function codeFor(){return ''}
 const normC=c=>{const x=(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'').replace(/^MS/,'');return x.length===8?'MS-'+x.slice(0,4)+'-'+x.slice(4):''};
 
 const store={get(k,d){try{const v=localStorage.getItem('ms_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('ms_'+k,JSON.stringify(v))}catch(e){}}};
@@ -682,14 +682,14 @@ function pinKey(k){if(k==='⌫')pinBuf=pinBuf.slice(0,-1);else if(pinBuf.length<
 function vActivar(){const end=lic&&lic.trial&&trialLeft()<=0;
  return `<div style="text-align:center;padding:30px 0 10px"><div class="logo"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M9 15.5l2 2 4-4"/></svg></div><h1>Mi<span style="color:var(--ac)">Cita</span> <span style="font-size:.55em;color:var(--gold)">Salón</span></h1></div>
  ${end?`<div class="card" style="border-left:3px solid var(--ac)"><b>Tu prueba gratis terminó.</b><p class="sm mut" style="margin-top:4px">Tus citas, clientes y caja están guardadas. Activa tu código para seguir usándola.</p></div>`:''}
- <div class="card"><h2>Activa tu app</h2><p class="sm mut">Escribe tu nombre tal como lo diste en la compra y el código que recibiste.</p>
- <label class="f">Nombre completo</label><input id="an" placeholder="Ej: Carolina Gómez" autocomplete="name"><label class="f">Código de activación</label><input id="acd" placeholder="MS-XXXX-XXXX" autocapitalize="characters" style="text-transform:uppercase;letter-spacing:2px">
+ <div class="card"><h2>Activa tu app</h2><p class="sm mut">Abre el <b>enlace de activación</b> que te enviamos después de la compra, o pega aquí el código completo.</p>
+ <label class="f">Código de activación</label><input id="acd" placeholder="Pega aquí tu código" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false">
  <div id="aerr" class="err"></div><button class="btn pri full" style="margin-top:14px" onclick="activar()">Activar</button></div>
  ${showAct?`<button class="btn ghost full" onclick="showAct=false;render()">Volver</button>`:`<button class="btn ghost full" onclick="dlBackup()">Descargar copia de mis datos</button>`}
  ${SOPORTE?`<p class="sm mut" style="text-align:center;margin-top:14px">¿Necesitas tu código? <a href="https://wa.me/${SOPORTE}">Escríbenos por WhatsApp</a></p>`:''}`}
-function activar(){const n=$('#an').value.trim(),c=normC($('#acd').value);if(normN(n).length<3){$('#aerr').textContent='Escribe tu nombre completo.';return}
- if(!c||c!==codeFor(n)){$('#aerr').textContent='El código no coincide con ese nombre. Revisa que esté escrito igual que en tu compra.';return}
- lic={name:n,code:c,date:iso(today())};store.set('lic',lic);showAct=false;let nm=n.split(/\s+/)[0];nm=nm.charAt(0).toUpperCase()+nm.slice(1).toLowerCase();render();
+const LIC_PUB={x:'3K1sKw21aD8hwYyrfECZw2KG8nC2H8hGvyIB564SF-w',y:'Hi5MWU8Aenc7wf_Q9oqS5mn9iPxMjtiMaCFrghDcqSc'},LIC_APP='MICITASALON1';const b64uB=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return Uint8Array.from(atob(s),c=>c.charCodeAt(0))};async function verifyLic(t){try{t=String(t||'').trim();const m=t.match(/activar=([^&\s]+)/);if(m)t=decodeURIComponent(m[1]);const[e,f]=t.split('.');if(!e||!f)return null;const name=new TextDecoder().decode(b64uB(e)).trim();if(name.length<2)return null;const k=await crypto.subtle.importKey('jwk',{kty:'EC',crv:'P-256',x:LIC_PUB.x,y:LIC_PUB.y},{name:'ECDSA',namedCurve:'P-256'},false,['verify']);const ok=await crypto.subtle.verify({name:'ECDSA',hash:'SHA-256'},k,b64uB(f),new TextEncoder().encode(LIC_APP+'|'+name));return ok?name:null}catch(e){return null}}
+async function activar(){const t=($('#acd').value||'').trim();const n=await verifyLic(t);if(!n){$('#aerr').textContent='El código no es válido. Abre el enlace de activación que te enviamos o pega el código completo.';return}licOK(n)}
+function licOK(n){const c='LV2';lic={name:n,code:c,v:2,date:iso(today())};store.set('lic',lic);showAct=false;let nm=n.split(/\s+/)[0];nm=nm.charAt(0).toUpperCase()+nm.slice(1).toLowerCase();render();
  modal(`<div style="text-align:center"><div style="font-size:46px">💖</div><h2>¡Listo, ${esc(nm)}!</h2><p class="mut">MiCita Salón quedó activada para siempre. Que tu agenda se llene y tu negocio crezca.</p><button class="btn pri full" style="margin-top:14px" onclick="closeM()">Continuar</button></div>`)}
 
 /* ---------- Diseño adaptable ---------- */
@@ -741,5 +741,6 @@ render();
 if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&B)render()});
 </script>
+<script>(function(){const m=(location.hash||'').match(/activar=([^&]+)/);if(!m)return;verifyLic(decodeURIComponent(m[1])).then(n=>{try{history.replaceState(null,'',location.pathname)}catch(e){}if(n)licOK(n);else{const M='Ese enlace de activación no es válido. Escríbenos por WhatsApp al 320 290 3722.';showAct=true;render();const e=document.getElementById('aerr');if(e)e.textContent=M;else{const d=document.createElement('div');d.textContent=M;d.style.cssText='position:fixed;left:16px;right:16px;bottom:24px;z-index:9999;background:#c4473d;color:#fff;padding:14px;border-radius:12px;font:600 15px system-ui;text-align:center';document.body.appendChild(d);setTimeout(()=>d.remove(),8000)}}})})();</script>
 </body>
 </html>
