@@ -152,7 +152,7 @@ nav button svg{width:21px;height:21px}
 <button id="fab" class="hide" onclick="newAppt()" aria-label="Nueva cita">+</button>
 <nav id="nav" class="hide"></nav>
 <script>
-const APPNAME='MiCita Salón',APP_URL='https://luisvanegas15-wq.github.io/Mi-Cita-Salon/',SOPORTE='',SECRET='',TRIAL=7;
+const APPNAME='MiCita Salón',APP_URL='https://luisvanegas15-wq.github.io/Mi-Cita-Salon/',SOPORTE='573202903722',SECRET='',TRIAL=7;
 function h53(str,seed=0){let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
 h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
 const normN=n=>(n||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z]/g,'');
@@ -162,6 +162,8 @@ const normC=c=>{const x=(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'').replace(/
 const store={get(k,d){try{const v=localStorage.getItem('ms_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('ms_'+k,JSON.stringify(v))}catch(e){}}};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const limpiarDatos=v=>typeof v==='string'?v.replace(/[<>"`\\]/g,'').replace(/'/g,'’').slice(0,600):Array.isArray(v)?v.slice(0,400).map(limpiarDatos):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).slice(0,60).map(([k,x])=>[k,limpiarDatos(x)])):(typeof v==='number'&&isFinite(v))||typeof v==='boolean'||v==null?v:'';
+const corto=n=>{const p=String(n||'').trim().split(/\s+/);return p[0]+(p[1]?' '+p[1][0]+'.':'')};
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 const pad=n=>String(n).padStart(2,'0');
 const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
@@ -483,7 +485,7 @@ function saveExp(){const c=$('#ec').value.trim(),v=+$('#ev').value.replace(/\D/g
 function vMas(){const l=lic&&!lic.trial;
  return `<div class="hero"><div class="row" style="position:relative;z-index:1"><div class="av" style="background:var(--ac);width:52px;height:52px;font-size:22px">${TYPES[B.type][0]}</div><div><h2 style="margin:0;color:#fff">${esc(B.name)}</h2><div class="mut sm">${esc(B.owner)} · ${TYPES[B.type][1]} · ${actPR().length} profesional${actPR().length===1?'':'es'}</div></div></div></div>
  <div class="card" style="padding:4px 16px">
- ${[['vTeam()','👥','Equipo y comisiones'],['enterPro()','👤','Modo profesional'],['vLink()','🔗','Link de reservas'],['shareSlots()','📣','Compartir espacios libres'],['vWait()','⏳','Lista de espera'],['editBiz()','🏪','Mi salón y horario'],['vSvc()','💅','Servicios, precios y adicionales'],['vTpl()','💬','Mensajes de WhatsApp'],['vPin()','🔒',B.pin?'Cambiar o quitar PIN':'Proteger con PIN'],['vBackup()','💾','Copia de seguridad'],['vHelp()','❓','Cómo instalar y usar']].map(([f,i,t])=>`<div class="li" style="cursor:pointer" onclick="${f}"><span>${i} ${t}</span><span class="mut">›</span></div>`).join('')}</div>
+ ${[['vTeam()','👥','Equipo y comisiones'],['enterPro()','👤','Modo profesional'],['vLink()','🔗','Link de reservas'],['shareSlots()','📣','Compartir espacios libres'],['vWait()','⏳','Lista de espera'],['editBiz()','🏪','Mi salón y horario'],['vSvc()','💅','Servicios, precios y adicionales'],['vTpl()','💬','Mensajes de WhatsApp'],['vPin()','🔒',B.pin?'Cambiar o quitar PIN':'Proteger con PIN'],['vBackup()','💾','Copia de seguridad'],['vLegal()','📄','Privacidad y términos'],['vHelp()','❓','Cómo instalar y usar']].map(([f,i,t])=>`<div class="li" style="cursor:pointer" onclick="${f}"><span>${i} ${t}</span><span class="mut">›</span></div>`).join('')}</div>
  <div class="card"><div class="row between"><div><b>${l?'App activada':'Prueba gratis'}</b><div class="sm mut">${l?esc(lic.name)+' · '+esc(lic.code):trialLeft()+' día'+(trialLeft()===1?'':'s')+' restantes'}</div></div>${l?'<span class="chip st-done">Activa</span>':`<button class="btn s pri" onclick="showAct=true;render()">Activar</button>`}</div></div>
  <p class="xs mut" style="text-align:center;margin-top:16px">MiCita Salón · LV Studio · Tus datos se guardan solo en este celular.</p>`}
 function vTeam(){modal(`<div class="row between"><h2 style="margin:0">Equipo</h2><button class="btn s pri" onclick="editPro()">+ Agregar</button></div>
@@ -499,6 +501,12 @@ function editPro(id){const p=id?pro(id):{name:'',phone:'',comm:40,color:COLORS[P
  <div id="per2" class="err"></div><button class="btn pri full" style="margin-top:16px" onclick="savePro('${id||''}')">Guardar</button><button class="btn ghost full" style="margin-top:8px" onclick="vTeam()">Volver</button>`)}
 function savePro(id){const n=$('#pn2').value.trim();if(!n){$('#per2').textContent='Escribe el nombre.';return}const o={name:n,phone:$('#pp2').value.trim(),comm:Math.min(100,+$('#pc2').value.replace(/\D/g,'')||0),color:($('#pcs .pill.on')||{dataset:{c:COLORS[0]}}).dataset.c,pin:$('#ppin').value.replace(/\D/g,'').slice(0,4)};if(o.pin&&o.pin.length!==4){$('#per2').textContent='El PIN debe tener 4 números.';return}
  if(id)Object.assign(pro(id),o);else PR.push({id:'p'+uid(),on:true,...o});save();render();vTeam()}
+function vLegal(){modal(`<h2>📄 Privacidad y términos</h2>
+ <div class="card"><b>Dónde están tus datos</b><p class="sm mut" style="margin-top:4px">Todo (clientes, citas, caja) se guarda solo en este celular o tablet. LV Studio no tiene servidores ni ve tu información. Si borras la app o los datos del navegador, se pierde: haz una <b>copia de seguridad</b> cada semana.</p></div>
+ <div class="card"><b>Tus clientes (Ley 1581 de 2012)</b><p class="sm mut" style="margin-top:4px">Tú eres el responsable de los datos de tus clientes. Úsalos solo para gestionar sus citas, pide su permiso para escribirles por WhatsApp, borra a quien lo solicite y protege la app con PIN. No compartas el archivo de copia de seguridad.</p></div>
+ <div class="card"><b>Links que compartes</b><p class="sm mut" style="margin-top:4px">El link de reservas solo lleva tu negocio, servicios y horas libres; nunca datos de clientes.${typeof proURL==='function'?' El link de agenda de cada profesional muestra nombre corto de sus clientes y las notas: envíalo solo a esa persona.':''}</p></div>
+ <div class="card"><b>Licencia</b><p class="sm mut" style="margin-top:4px">Licencia de uso personal para un negocio. No se permite revender ni copiar el código. Prueba gratis de ${TRIAL} días. Por ser un producto digital, puedes pedir devolución dentro de 5 días hábiles de la compra (retracto). La app se entrega como está; LV Studio no responde por pérdida de datos sin copia de seguridad.</p></div>
+ <a class="btn wa full" href="https://wa.me/${SOPORTE}" target="_blank">Soporte: WhatsApp 320 290 3722</a>`)}
 function editBiz(){const dn=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
  modal(`<h2>Mi negocio</h2><label class="f">Nombre del negocio</label><input id="bn" value="${esc(B.name)}"><label class="f">Tu nombre</label><input id="bo" value="${esc(B.owner)}">
  <label class="f">WhatsApp del negocio</label><input id="bw" inputmode="tel" value="${esc(B.wa||'')}" placeholder="300 123 4567"><div class="xs mut" style="margin-top:4px">Aquí te llegan los pedidos del link de reservas.</div>
@@ -621,7 +629,7 @@ function vLink(){if(!B.wa){modal(`<h2>Link de reservas</h2><p class="mut">Tus cl
  <div class="row" style="margin-top:6px"><button class="btn pri grow" onclick="copyTxt(window._lu)">Copiar link</button><button class="btn grow" onclick="window.open(window._lu,'_blank')">Ver cómo se ve</button></div>
  ${navigator.share?`<button class="btn ghost full" style="margin-top:8px" onclick="navigator.share({title:B.name,text:'Agenda tu cita en '+B.name,url:window._lu}).catch(()=>{})">Compartir</button>`:''}
  <div class="card" style="margin-top:14px"><b>¿Cómo llega el pedido?</b><p class="sm mut" style="margin-top:4px">Te escriben por WhatsApp con el servicio, el día y la hora. Copia ese mensaje, toca <b>📥 Pegar pedido</b> en Hoy y la cita queda armada para aceptarla con un toque.</p></div>`)}
-function getBooking(){const h=location.hash;if(!h.startsWith('#r='))return null;try{return JSON.parse(b64d(h.slice(3)))}catch(e){return {err:1}}}
+function getBooking(){const h=location.hash;if(!h.startsWith('#r='))return null;try{return limpiarDatos(JSON.parse(b64d(h.slice(3))))}catch(e){return {err:1}}}
 let bk={s:-1,d:null,t:null};
 function vBook(D){if(D.err)return `<div class="empty" style="padding-top:80px">Este link de reservas no es válido. Pídele uno nuevo al salón.</div>`;
  const t=iso(today()),X=D.x||[],RP=D.r||[];bk.x=bk.x||[];if(bk.p==null)bk.p=-1;
@@ -643,7 +651,7 @@ function vBook(D){if(D.err)return `<div class="empty" style="padding-top:80px">E
  ${bk.t!=null&&sel?`<div class="card"><h2>Tus datos</h2><label class="f">Tu nombre</label><input id="bkn" placeholder="Nombre y apellido" value="${esc(store.get('bkName',''))}"><label class="f">Tu celular</label><input id="bkp" inputmode="tel" placeholder="300 123 4567" value="${esc(store.get('bkPhone',''))}"><div id="bke" class="err"></div>
  <div class="tot" style="margin-top:12px"><div><span class="xs mut">${esc(s[0])}${xs.length?' + '+xs.map(x=>esc(x[0])).join(' + '):''}${bk.p>=0?' · con '+esc(RP[bk.p]):''}</span><b>${money(total)}</b></div>${dep?`<div style="text-align:right"><span class="xs mut">Abono para separar</span><b style="color:var(--ok)">${money(dep)}</b></div>`:''}</div>
  ${D.p?`<div class="banner" style="margin-top:12px">💡 ${esc(D.p)}</div>`:''}
- <button class="btn wa full" style="margin-top:12px" onclick="sendBooking()">Pedir cita por WhatsApp</button><p class="xs mut" style="text-align:center;margin-top:8px">${esc(D.n)} te confirmará la cita por WhatsApp.</p></div>`:''}
+ <button class="btn wa full" style="margin-top:12px" onclick="sendBooking()">Pedir cita por WhatsApp</button><p class="xs mut" style="text-align:center;margin-top:8px">${esc(D.n)} te confirmará la cita por WhatsApp.</p><p class="xs mut" style="text-align:center;margin-top:6px">Al enviar, compartes tu nombre y celular solo con este negocio para gestionar tu cita (Ley 1581 de 2012). Este link no guarda tus datos.</p></div>`:''}
  <p class="xs mut" style="text-align:center;margin:18px 0">Espacios actualizados al ${dShort(D.g)} · Hecho con MiCita Salón</p>`}
 function sendBooking(){const D=getBooking(),s=D.s[bk.s],X=D.x||[],RP=D.r||[],xs=(bk.x||[]).map(i=>X[i]).filter(Boolean),n=$('#bkn').value.trim(),p=$('#bkp').value.trim();if(n.length<3){$('#bke').textContent='Escribe tu nombre.';return}
  store.set('bkName',n);store.set('bkPhone',p);const hm=fromMin(bk.t),total=s[1]+xs.reduce((a,x)=>a+x[1],0),dep=s[3]||0,who=bk.p>=0?RP[bk.p]:'';
@@ -715,11 +723,11 @@ function proData(pid){const p=pro(pid),t=iso(today()),c=(p.comm||0)/100,o=toMin(
  const mine=AP.filter(a=>a.pid===pid);
  const earn=(a,b)=>mine.filter(x=>x.date>=a&&x.date<=b).reduce((s,x)=>s+Math.round(apInc(x)*c)+apTip(x),0);
  const days=[];for(let i=0;i<7;i++){const d=addD(t,i);const l=mine.filter(a=>a.date===d&&a.status!=='cancel').sort((a,b)=>toMin(a.time)-toMin(b.time));const busy=l.filter(a=>a.status!=='noshow').reduce((s,a)=>s+(a.dur||60),0);
-  days.push([d,B.days.includes(parse(d).getDay())?Math.min(100,Math.round(busy/(cl-o)*100)):-1,l.map(a=>[a.time,a.dur||60,cli(a.cid).name,svc(a.sid).name+addTxt(a),a.price,a.status,a.note||'',a.status==='done'?Math.round(apInc(a)*c)+apTip(a):Math.round(a.price*c)])])}
+  days.push([d,B.days.includes(parse(d).getDay())?Math.min(100,Math.round(busy/(cl-o)*100)):-1,l.map(a=>[a.time,a.dur||60,corto(cli(a.cid).name),svc(a.sid).name+addTxt(a),a.price,a.status,a.note||'',a.status==='done'?Math.round(apInc(a)*c)+apTip(a):Math.round(a.price*c)])])}
  const up=mine.filter(a=>a.date>=t&&a.date<=addD(t,6)&&(a.status==='pend'||a.status==='conf')).reduce((s,a)=>s+Math.round(a.price*c),0);
  return {n:B.name,pn:p.name,c:p.comm||0,col:p.color,g:t,gt:new Date().toTimeString().slice(0,5),et:earn(t,t),ew:earn(ws,t),em:earn(ms,t),up,days,mt:mine.filter(x=>x.date>=ms&&x.date<=t&&x.status==='done').length}}
 function proURL(pid){return APP_URL+'#p='+b64e(JSON.stringify(proData(pid)))}
-function getProView(){const h=location.hash;if(!h.startsWith('#p='))return null;try{return JSON.parse(b64d(h.slice(3)))}catch(e){return {err:1}}}
+function getProView(){const h=location.hash;if(!h.startsWith('#p='))return null;try{return limpiarDatos(JSON.parse(b64d(h.slice(3))))}catch(e){return {err:1}}}
 function vProPanel(D,live){if(D.err)return `<div class="empty" style="padding-top:80px">Este link no es válido. Pídele uno nuevo a tu salón.</div>`;
  const t=iso(today()),days=D.days.filter(([d])=>d>=t),td=days.find(([d])=>d===t);const nToday=td?td[2].filter(a=>a[5]!=='noshow').length:0;
  return `<div class="hero" style="background:linear-gradient(135deg,#2b1e2f,#2b1e2f)"><div class="mut sm">${esc(D.n)} · ${live?'Modo profesional':'Tu agenda'}</div><h1 style="margin-top:2px">Hola, ${esc(D.pn.split(' ')[0])} 👋</h1><div class="mut sm" style="position:relative;z-index:1">Comisión ${D.c}% · ${D.mt} servicio${D.mt===1?'':'s'} este mes</div>
