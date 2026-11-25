@@ -152,7 +152,7 @@ nav button svg{width:21px;height:21px}
 <button id="fab" class="hide" onclick="newAppt()" aria-label="Nueva cita">+</button>
 <nav id="nav" class="hide"></nav>
 <script>
-const APPNAME='MiCita Salón',APP_URL='https://luisvanegas15-wq.github.io/Mi-Cita-Salon/',SOPORTE='573202903722',SECRET='',TRIAL=7;
+const APPNAME='MiCita Salón',APP_URL='https://luisvanegas15-wq.github.io/Mi-Cita-Salon/',SOPORTE='573187179215',SECRET='',TRIAL=7;
 function h53(str,seed=0){let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
 h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
 const normN=n=>(n||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z]/g,'');
@@ -506,7 +506,7 @@ function vLegal(){modal(`<h2>📄 Privacidad y términos</h2>
  <div class="card"><b>Tus clientes (Ley 1581 de 2012)</b><p class="sm mut" style="margin-top:4px">Tú eres el responsable de los datos de tus clientes. Úsalos solo para gestionar sus citas, pide su permiso para escribirles por WhatsApp, borra a quien lo solicite y protege la app con PIN. No compartas el archivo de copia de seguridad.</p></div>
  <div class="card"><b>Links que compartes</b><p class="sm mut" style="margin-top:4px">El link de reservas solo lleva tu negocio, servicios y horas libres; nunca datos de clientes.${typeof proURL==='function'?' El link de agenda de cada profesional muestra nombre corto de sus clientes y las notas: envíalo solo a esa persona.':''}</p></div>
  <div class="card"><b>Licencia</b><p class="sm mut" style="margin-top:4px">Licencia de uso personal para un negocio. No se permite revender ni copiar el código. Prueba gratis de ${TRIAL} días. Por ser un producto digital, puedes pedir devolución dentro de 5 días hábiles de la compra (retracto). La app se entrega como está; LV Studio no responde por pérdida de datos sin copia de seguridad.</p></div>
- <a class="btn wa full" href="https://wa.me/${SOPORTE}" target="_blank">Soporte: WhatsApp 320 290 3722</a>`)}
+ <a class="btn wa full" href="https://wa.me/${SOPORTE}" target="_blank">Soporte: WhatsApp 318 717 9215</a>`)}
 function editBiz(){const dn=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
  modal(`<h2>Mi negocio</h2><label class="f">Nombre del negocio</label><input id="bn" value="${esc(B.name)}"><label class="f">Tu nombre</label><input id="bo" value="${esc(B.owner)}">
  <label class="f">WhatsApp del negocio</label><input id="bw" inputmode="tel" value="${esc(B.wa||'')}" placeholder="300 123 4567"><div class="xs mut" style="margin-top:4px">Aquí te llegan los pedidos del link de reservas.</div>
@@ -749,6 +749,6 @@ render();
 if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&B)render()});
 </script>
-<script>(function(){const m=(location.hash||'').match(/activar=([^&]+)/);if(!m)return;verifyLic(decodeURIComponent(m[1])).then(n=>{try{history.replaceState(null,'',location.pathname)}catch(e){}if(n)licOK(n);else{const M='Ese enlace de activación no es válido. Escríbenos por WhatsApp al 320 290 3722.';showAct=true;render();const e=document.getElementById('aerr');if(e)e.textContent=M;else{const d=document.createElement('div');d.textContent=M;d.style.cssText='position:fixed;left:16px;right:16px;bottom:24px;z-index:9999;background:#c4473d;color:#fff;padding:14px;border-radius:12px;font:600 15px system-ui;text-align:center';document.body.appendChild(d);setTimeout(()=>d.remove(),8000)}}})})();</script>
+<script>(function(){const m=(location.hash||'').match(/activar=([^&]+)/);if(!m)return;verifyLic(decodeURIComponent(m[1])).then(n=>{try{history.replaceState(null,'',location.pathname)}catch(e){}if(n)licOK(n);else{const M='Ese enlace de activación no es válido. Escríbenos por WhatsApp al 318 717 9215.';showAct=true;render();const e=document.getElementById('aerr');if(e)e.textContent=M;else{const d=document.createElement('div');d.textContent=M;d.style.cssText='position:fixed;left:16px;right:16px;bottom:24px;z-index:9999;background:#c4473d;color:#fff;padding:14px;border-radius:12px;font:600 15px system-ui;text-align:center';document.body.appendChild(d);setTimeout(()=>d.remove(),8000)}}})})();</script>
 </body>
 </html>
